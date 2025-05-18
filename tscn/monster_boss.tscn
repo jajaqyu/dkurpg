@@ -1,0 +1,200 @@
+[gd_scene load_steps=39 format=3 uid="uid://bsbwsx2u5tp7"]
+
+[ext_resource type="Script" uid="uid://6iidnt3iv8fa" path="res://script/monster_boss.gd" id="1_88df3"]
+[ext_resource type="PackedScene" uid="uid://src3l75bt236" path="res://tscn/fireball_monster.tscn" id="2_1gjso"]
+[ext_resource type="PackedScene" uid="uid://dug67euffp7je" path="res://tscn/arua.tscn" id="3_qxyi2"]
+[ext_resource type="PackedScene" uid="uid://dtn0xy8tsytbt" path="res://tscn/lightning_effect.tscn" id="4_jo8hc"]
+[ext_resource type="PackedScene" uid="uid://c5ubkotnssvms" path="res://tscn/warning_effect.tscn" id="5_fugux"]
+[ext_resource type="Texture2D" uid="uid://b4fdvcfk01oqm" path="res://sprites/monster/slime_black/slime_black_attack0.png" id="6_ai8l2"]
+[ext_resource type="Texture2D" uid="uid://clscfyf8pq63a" path="res://sprites/monster/slime_black/slime_black_attack1.png" id="7_tgqhs"]
+[ext_resource type="Texture2D" uid="uid://cgb2uuilgq5ph" path="res://sprites/monster/slime_black/slime_black_attack2.png" id="8_4n8mm"]
+[ext_resource type="Texture2D" uid="uid://y6crwuejs535" path="res://sprites/monster/slime_black/slime_black_attack3.png" id="9_v4x6g"]
+[ext_resource type="Texture2D" uid="uid://sfwmwfxap2sg" path="res://sprites/monster/slime_black/slime_black_attack4.png" id="10_omfqp"]
+[ext_resource type="Texture2D" uid="uid://b3cfuvoe88xcu" path="res://sprites/monster/slime_black/slime_black_attack5.png" id="11_7fhta"]
+[ext_resource type="Texture2D" uid="uid://c4n63g4rnpu40" path="res://sprites/monster/slime_black/slime_black_attack6.png" id="12_hufps"]
+[ext_resource type="Texture2D" uid="uid://barogucn22cd1" path="res://sprites/monster/slime_black/slime_black_attack7.png" id="13_ndelw"]
+[ext_resource type="Texture2D" uid="uid://ccaq5scyayinf" path="res://sprites/monster/slime_black/slime_black_die0.png" id="14_d2wme"]
+[ext_resource type="Texture2D" uid="uid://c80ipltxiq48s" path="res://sprites/monster/slime_black/slime_black_die1.png" id="15_v4df0"]
+[ext_resource type="Texture2D" uid="uid://bic5daq0qrjkg" path="res://sprites/monster/slime_black/slime_black_die2.png" id="16_khm74"]
+[ext_resource type="Texture2D" uid="uid://bpshax76mspb2" path="res://sprites/monster/slime_black/slime_black_die3.png" id="17_4kit8"]
+[ext_resource type="Texture2D" uid="uid://deuebci06ltoh" path="res://sprites/monster/slime_black/slime_black_die4.png" id="18_phayp"]
+[ext_resource type="Texture2D" uid="uid://dhueu02xd678c" path="res://sprites/monster/slime_black/slime_black_die5.png" id="19_smov8"]
+[ext_resource type="Texture2D" uid="uid://02ehnupptx5j" path="res://sprites/monster/slime_black/slime_black_idle0.png" id="20_upwi8"]
+[ext_resource type="Texture2D" uid="uid://btub8t0lxlr70" path="res://sprites/monster/slime_black/slime_black_idle1.png" id="21_n35ga"]
+[ext_resource type="Texture2D" uid="uid://cejoe1yil0kvd" path="res://sprites/monster/slime_black/slime_black_idle2.png" id="22_yvvop"]
+[ext_resource type="Texture2D" uid="uid://58kavauvxydr" path="res://sprites/monster/slime_black/slime_black_idle3.png" id="23_syh0v"]
+[ext_resource type="Texture2D" uid="uid://d07s3ko8junbk" path="res://sprites/monster/slime_black/slime_black_idle4.png" id="24_f4vk5"]
+[ext_resource type="Texture2D" uid="uid://ovetwpm53hek" path="res://sprites/monster/slime_black/slime_black_skill0.png" id="25_ndgm7"]
+[ext_resource type="Texture2D" uid="uid://bea6uls71wr3t" path="res://sprites/monster/slime_black/slime_black_skill1.png" id="26_2kvy4"]
+[ext_resource type="Texture2D" uid="uid://teuhbwiuu4j5" path="res://sprites/monster/slime_black/slime_black_skill2.png" id="27_0qte8"]
+[ext_resource type="Texture2D" uid="uid://dt48dgloywj3x" path="res://sprites/monster/slime_black/slime_black_skill3.png" id="28_khavn"]
+[ext_resource type="Texture2D" uid="uid://dmt52tbb22ow" path="res://sprites/monster/slime_black/slime_black_skill4.png" id="29_judiy"]
+[ext_resource type="Texture2D" uid="uid://v1y0aas44k7p" path="res://sprites/monster/slime_black/slime_black_skill5.png" id="30_eq5ce"]
+[ext_resource type="Texture2D" uid="uid://b5u4xx310i7qn" path="res://sprites/monster/slime_black/slime_black_skill6.png" id="31_rplsx"]
+[ext_resource type="Texture2D" uid="uid://b5mg1rh6pooep" path="res://sprites/monster/slime_black/slime_black_skill7.png" id="32_pnhrx"]
+[ext_resource type="Texture2D" uid="uid://ciu4vq1dlnjll" path="res://sprites/monster/slime_black/slime_black_skill8.png" id="33_lfylf"]
+[ext_resource type="Texture2D" uid="uid://3ijecaqliyq2" path="res://sprites/monster/slime_black/slime_black_skill9.png" id="34_2x5k3"]
+[ext_resource type="Texture2D" uid="uid://ciegpuika8lrg" path="res://sprites/monster/slime_black/slime_black_skill10.png" id="35_c6mrk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mrqeg"]
+radius = 106.0
+height = 248.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ssiii"]
+radius = 77.0
+height = 222.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0i6rv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ai8l2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_tgqhs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4n8mm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_v4x6g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_omfqp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_7fhta")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_hufps")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ndelw")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_d2wme")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_v4df0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_khm74")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_4kit8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_phayp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_smov8")
+}],
+"loop": false,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_d2wme")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_v4df0")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_upwi8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_n35ga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_yvvop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_syh0v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_f4vk5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_ndgm7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_2kvy4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_0qte8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_khavn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_judiy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_eq5ce")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_rplsx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_pnhrx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_lfylf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_2x5k3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_c6mrk")
+}],
+"loop": false,
+"name": &"skill",
+"speed": 5.0
+}]
+
+[node name="Monster_boss" type="CharacterBody2D" groups=["enemies"]]
+position = Vector2(-199, -146)
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("1_88df3")
+projectile_scene = ExtResource("2_1gjso")
+area_scene = ExtResource("3_qxyi2")
+lightning_scene = ExtResource("4_jo8hc")
+warning_scene = ExtResource("5_fugux")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(242, 164)
+shape = SubResource("CapsuleShape2D_mrqeg")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(243, 166)
+shape = SubResource("CapsuleShape2D_ssiii")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(246, 171)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_0i6rv")
+animation = &"idle"
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_area_entered"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdn6fminqf5re"]
+
+[ext_resource type="Script" uid="uid://befiywojsc0on" path="res://script/stage_near.gd" id="1_wnq5m"]
+[ext_resource type="PackedScene" uid="uid://d32i7ivu474tf" path="res://tscn/Player.tscn" id="2_8nosa"]
+[ext_resource type="PackedScene" uid="uid://day01k30b2mv3" path="res://tscn/Monster.tscn" id="3_yov7p"]
+
+[node name="Stage near" type="Node2D"]
+script = ExtResource("1_wnq5m")
+player_scene = ExtResource("2_8nosa")
+monster_scene = ExtResource("3_yov7p")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="TimeLabel" type="Label" parent="."]
+offset_left = 553.0
+offset_top = 12.0
+offset_right = 593.0
+offset_bottom = 35.0
+
+[node name="GameoverDialog" type="AcceptDialog" parent="."]
+process_mode = 3

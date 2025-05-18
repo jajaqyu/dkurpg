@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dug67euffp7je"]
+
+[ext_resource type="Script" uid="uid://pb8ti7crcybe" path="res://script/arua.gd" id="1_1wyv3"]
+[ext_resource type="Texture2D" uid="uid://d4cskbeeqpune" path="res://sprites/aura014_1.png" id="1_8omkl"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8omkl"]
+radius = 368.0
+height = 750.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1wyv3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8omkl")
+}],
+"loop": true,
+"name": &"arua",
+"speed": 5.0
+}]
+
+[node name="Arua" type="Area2D"]
+show_behind_parent = true
+script = ExtResource("1_1wyv3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -17)
+shape = SubResource("CapsuleShape2D_8omkl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, -33)
+scale = Vector2(3.33333, 3.10417)
+sprite_frames = SubResource("SpriteFrames_1wyv3")
+animation = &"arua"

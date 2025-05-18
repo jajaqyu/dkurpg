@@ -1,0 +1,270 @@
+[gd_scene load_steps=5 format=3 uid="uid://dim7eqbqs15mo"]
+
+[ext_resource type="Script" uid="uid://c6yjdsp47oype" path="res://script/character_select.gd" id="1_bw16d"]
+[ext_resource type="Script" uid="uid://cr2c8gwr6om6v" path="res://script/CharBox1.gd" id="2_jp0a2"]
+[ext_resource type="Script" uid="uid://r3jji88ksci3" path="res://script/char_box_2.gd" id="3_jp0a2"]
+[ext_resource type="Script" uid="uid://cxcxyjg7adlr0" path="res://script/char_box_3.gd" id="4_hr854"]
+
+[node name="CharacterSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_bw16d")
+
+[node name="CharBox1" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 80.0
+offset_top = 30.0
+offset_right = 380.0
+offset_bottom = 630.0
+script = ExtResource("2_jp0a2")
+
+[node name="NameLabel" type="Label" parent="CharBox1"]
+layout_mode = 2
+offset_top = 300.0
+offset_right = 300.0
+offset_bottom = 330.0
+
+[node name="JobLabel" type="Label" parent="CharBox1"]
+layout_mode = 2
+offset_top = 330.0
+offset_right = 300.0
+offset_bottom = 360.0
+
+[node name="HPLabel" type="Label" parent="CharBox1"]
+layout_mode = 2
+offset_top = 360.0
+offset_right = 300.0
+offset_bottom = 390.0
+
+[node name="ATKLabel" type="Label" parent="CharBox1"]
+layout_mode = 2
+offset_top = 390.0
+offset_right = 300.0
+offset_bottom = 420.0
+
+[node name="DEFLabel" type="Label" parent="CharBox1"]
+layout_mode = 2
+offset_top = 420.0
+offset_right = 300.0
+offset_bottom = 450.0
+
+[node name="INTLabel" type="Label" parent="CharBox1"]
+layout_mode = 2
+offset_top = 450.0
+offset_right = 300.0
+offset_bottom = 480.0
+
+[node name="MOVLabel" type="Label" parent="CharBox1"]
+layout_mode = 2
+offset_top = 480.0
+offset_right = 300.0
+offset_bottom = 510.0
+
+[node name="ProgressLabel" type="Label" parent="CharBox1"]
+layout_mode = 2
+offset_top = 510.0
+offset_right = 300.0
+offset_bottom = 540.0
+
+[node name="PlusButton" type="Button" parent="CharBox1"]
+layout_mode = 2
+offset_right = 300.0
+offset_bottom = 600.0
+theme_override_font_sizes/font_size = 50
+text = "+"
+
+[node name="JobApperance" type="TextureRect" parent="CharBox1"]
+layout_mode = 2
+offset_right = 300.0
+offset_bottom = 300.0
+
+[node name="SelectButton" type="Button" parent="CharBox1"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 545.0
+offset_right = 125.0
+offset_bottom = 595.0
+text = "선택
+"
+
+[node name="DiscardButton" type="Button" parent="CharBox1"]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 545.0
+offset_right = 275.0
+offset_bottom = 595.0
+text = "삭제"
+
+[node name="CharBox2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 430.0
+offset_top = 30.0
+offset_right = 730.0
+offset_bottom = 630.0
+script = ExtResource("3_jp0a2")
+
+[node name="NameLabel" type="Label" parent="CharBox2"]
+layout_mode = 2
+offset_top = 300.0
+offset_right = 300.0
+offset_bottom = 330.0
+
+[node name="JobLabel" type="Label" parent="CharBox2"]
+layout_mode = 2
+offset_top = 330.0
+offset_right = 300.0
+offset_bottom = 360.0
+
+[node name="HPLabel" type="Label" parent="CharBox2"]
+layout_mode = 2
+offset_top = 360.0
+offset_right = 300.0
+offset_bottom = 390.0
+
+[node name="ATKLabel" type="Label" parent="CharBox2"]
+layout_mode = 2
+offset_top = 390.0
+offset_right = 300.0
+offset_bottom = 420.0
+
+[node name="DEFLabel" type="Label" parent="CharBox2"]
+layout_mode = 2
+offset_top = 420.0
+offset_right = 300.0
+offset_bottom = 450.0
+
+[node name="INTLabel" type="Label" parent="CharBox2"]
+layout_mode = 2
+offset_top = 450.0
+offset_right = 300.0
+offset_bottom = 480.0
+
+[node name="MOVLabel" type="Label" parent="CharBox2"]
+layout_mode = 2
+offset_top = 480.0
+offset_right = 300.0
+offset_bottom = 510.0
+
+[node name="ProgressLabel" type="Label" parent="CharBox2"]
+layout_mode = 2
+offset_top = 510.0
+offset_right = 300.0
+offset_bottom = 540.0
+
+[node name="PlusButton" type="Button" parent="CharBox2"]
+layout_mode = 2
+offset_right = 300.0
+offset_bottom = 600.0
+theme_override_font_sizes/font_size = 50
+text = "+"
+
+[node name="JobApperance" type="TextureRect" parent="CharBox2"]
+layout_mode = 2
+offset_right = 300.0
+offset_bottom = 300.0
+
+[node name="SelectButton" type="Button" parent="CharBox2"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 545.0
+offset_right = 125.0
+offset_bottom = 595.0
+text = "선택
+"
+
+[node name="DiscardButton" type="Button" parent="CharBox2"]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 545.0
+offset_right = 275.0
+offset_bottom = 595.0
+text = "삭제"
+
+[node name="CharBox3" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 760.0
+offset_top = 30.0
+offset_right = 1060.0
+offset_bottom = 630.0
+script = ExtResource("4_hr854")
+
+[node name="NameLabel" type="Label" parent="CharBox3"]
+layout_mode = 2
+offset_top = 300.0
+offset_right = 300.0
+offset_bottom = 330.0
+
+[node name="JobLabel" type="Label" parent="CharBox3"]
+layout_mode = 2
+offset_top = 330.0
+offset_right = 300.0
+offset_bottom = 360.0
+
+[node name="HPLabel" type="Label" parent="CharBox3"]
+layout_mode = 2
+offset_top = 360.0
+offset_right = 300.0
+offset_bottom = 390.0
+
+[node name="ATKLabel" type="Label" parent="CharBox3"]
+layout_mode = 2
+offset_top = 390.0
+offset_right = 300.0
+offset_bottom = 420.0
+
+[node name="DEFLabel" type="Label" parent="CharBox3"]
+layout_mode = 2
+offset_top = 420.0
+offset_right = 300.0
+offset_bottom = 450.0
+
+[node name="INTLabel" type="Label" parent="CharBox3"]
+layout_mode = 2
+offset_top = 450.0
+offset_right = 300.0
+offset_bottom = 480.0
+
+[node name="MOVLabel" type="Label" parent="CharBox3"]
+layout_mode = 2
+offset_top = 480.0
+offset_right = 300.0
+offset_bottom = 510.0
+
+[node name="ProgressLabel" type="Label" parent="CharBox3"]
+layout_mode = 2
+offset_top = 510.0
+offset_right = 300.0
+offset_bottom = 540.0
+
+[node name="PlusButton" type="Button" parent="CharBox3"]
+layout_mode = 2
+offset_right = 300.0
+offset_bottom = 600.0
+theme_override_font_sizes/font_size = 50
+text = "+"
+
+[node name="JobApperance" type="TextureRect" parent="CharBox3"]
+layout_mode = 2
+offset_right = 300.0
+offset_bottom = 300.0
+
+[node name="SelectButton" type="Button" parent="CharBox3"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 545.0
+offset_right = 125.0
+offset_bottom = 595.0
+text = "선택
+"
+
+[node name="DiscardButton" type="Button" parent="CharBox3"]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 545.0
+offset_right = 275.0
+offset_bottom = 595.0
+text = "삭제"

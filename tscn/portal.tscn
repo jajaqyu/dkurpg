@@ -1,0 +1,76 @@
+[gd_scene load_steps=13 format=3 uid="uid://cesadrt2lyci8"]
+
+[ext_resource type="Script" uid="uid://bgp8drt0qx3b4" path="res://script/portal.gd" id="1_ujlpe"]
+[ext_resource type="Texture2D" uid="uid://bvmf4b741nt0h" path="res://sprites/portal_green/portal_green000.png" id="2_0atdy"]
+[ext_resource type="Texture2D" uid="uid://c0puakjm4a770" path="res://sprites/portal_green/portal_green009.png" id="2_4wtjw"]
+[ext_resource type="Texture2D" uid="uid://8lbjorgacx5t" path="res://sprites/portal_green/portal_green001.png" id="3_4wtjw"]
+[ext_resource type="Texture2D" uid="uid://baihnd82pvofq" path="res://sprites/portal_green/portal_green002.png" id="4_j0kdp"]
+[ext_resource type="Texture2D" uid="uid://beuaow8u61va3" path="res://sprites/portal_green/portal_green003.png" id="5_s8l0m"]
+[ext_resource type="Texture2D" uid="uid://8c7msfjgqiof" path="res://sprites/portal_green/portal_green004.png" id="6_vxo8h"]
+[ext_resource type="Texture2D" uid="uid://dplp4f6c7bmcg" path="res://sprites/portal_green/portal_green005.png" id="7_ye5la"]
+[ext_resource type="Texture2D" uid="uid://cnc056m7n67lc" path="res://sprites/portal_green/portal_green006.png" id="8_wa2f0"]
+[ext_resource type="Texture2D" uid="uid://b4yeuvg0prnqe" path="res://sprites/portal_green/portal_green007.png" id="9_y5mxe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujlpe"]
+size = Vector2(107, 102)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kni7o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4wtjw")
+}],
+"loop": true,
+"name": &"locked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0atdy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4wtjw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_j0kdp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_s8l0m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vxo8h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ye5la")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wa2f0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_y5mxe")
+}],
+"loop": true,
+"name": &"unlocked",
+"speed": 5.0
+}]
+
+[node name="Portal" type="Area2D"]
+script = ExtResource("1_ujlpe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(51.5, 52)
+shape = SubResource("RectangleShape2D_ujlpe")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 13.0
+offset_top = 108.0
+offset_right = 103.0
+offset_bottom = 131.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(55, 43)
+scale = Vector2(2.59375, 2.29688)
+sprite_frames = SubResource("SpriteFrames_kni7o")
+animation = &"unlocked"
+
+[node name="ConfirmDialog" type="ConfirmationDialog" parent="."]

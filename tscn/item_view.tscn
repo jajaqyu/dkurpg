@@ -1,0 +1,85 @@
+[gd_scene load_steps=3 format=3 uid="uid://xqy6bxnycjlw"]
+
+[ext_resource type="Theme" uid="uid://krja1pyq4q23" path="res://tscn/rad.theme" id="1_i1tdn"]
+[ext_resource type="Script" uid="uid://bgify43c8dt0r" path="res://script/item_view.gd" id="1_syu4c"]
+
+[node name="ItemView" type="Window"]
+position = Vector2i(200, 36)
+size = Vector2i(400, 500)
+theme = ExtResource("1_i1tdn")
+script = ExtResource("1_syu4c")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 1.0
+offset_top = 20.0
+offset_right = 401.0
+offset_bottom = 140.0
+theme = ExtResource("1_i1tdn")
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_right = 120.0
+offset_bottom = 120.0
+
+[node name="Label" type="Label" parent="Panel"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 0
+offset_left = 120.0
+offset_right = 400.0
+offset_bottom = 120.0
+
+[node name="Panel2" type="Panel" parent="."]
+offset_left = 1.0
+offset_top = 140.0
+offset_right = 401.0
+offset_bottom = 260.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel2"]
+layout_mode = 0
+offset_right = 120.0
+offset_bottom = 120.0
+
+[node name="Label" type="Label" parent="Panel2"]
+layout_mode = 0
+offset_left = 120.0
+offset_right = 400.0
+offset_bottom = 120.0
+
+[node name="Panel3" type="Panel" parent="."]
+offset_left = 1.0
+offset_top = 260.0
+offset_right = 401.0
+offset_bottom = 380.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel3"]
+layout_mode = 0
+offset_right = 120.0
+offset_bottom = 120.0
+
+[node name="Label" type="Label" parent="Panel3"]
+layout_mode = 0
+offset_left = 120.0
+offset_right = 400.0
+offset_bottom = 120.0
+
+[node name="Panel4" type="Panel" parent="."]
+anchors_preset = -1
+anchor_right = 0.025
+anchor_bottom = 0.622
+offset_left = 1.0
+offset_top = 380.0
+offset_right = 391.0
+offset_bottom = 189.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel4"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -7.0
+offset_right = 116.0
+offset_bottom = 113.0
+
+[node name="Label" type="Label" parent="Panel4"]
+layout_mode = 0
+offset_left = 120.0
+offset_right = 400.0
+offset_bottom = 120.0

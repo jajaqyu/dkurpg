@@ -1,0 +1,145 @@
+[gd_scene load_steps=24 format=3 uid="uid://day01k30b2mv3"]
+
+[ext_resource type="Script" uid="uid://mxpcbae76jmb" path="res://script/monster.gd" id="1_mrqeg"]
+[ext_resource type="Texture2D" uid="uid://dklhha2wub4gg" path="res://sprites/monster/slime_green/slime_green_attack0.png" id="2_kik5g"]
+[ext_resource type="Texture2D" uid="uid://dlqbij438hkq0" path="res://sprites/monster/slime_green/slime_green_attack1.png" id="3_c4fxf"]
+[ext_resource type="Texture2D" uid="uid://b05giye7i0ilm" path="res://sprites/monster/slime_green/slime_green_attack2.png" id="4_wb3dq"]
+[ext_resource type="Texture2D" uid="uid://c47qdnf1manmq" path="res://sprites/monster/slime_green/slime_green_attack3.png" id="5_7nf3t"]
+[ext_resource type="Texture2D" uid="uid://l5pxq41cmnmp" path="res://sprites/monster/slime_green/slime_green_attack4.png" id="6_su77o"]
+[ext_resource type="Texture2D" uid="uid://cgenwruo1ydyg" path="res://sprites/monster/slime_green/slime_green_attack5.png" id="7_hnrfp"]
+[ext_resource type="Texture2D" uid="uid://bje4m010smlpa" path="res://sprites/monster/slime_green/slime_green_attack6.png" id="8_bxd4s"]
+[ext_resource type="Texture2D" uid="uid://wt12uh37b163" path="res://sprites/monster/slime_green/slime_green_attack7.png" id="9_6r3bj"]
+[ext_resource type="Texture2D" uid="uid://cjnn0gow1e4td" path="res://sprites/monster/slime_green/slime_green_die0.png" id="10_l52o4"]
+[ext_resource type="Texture2D" uid="uid://bv2x3g5xqq6rr" path="res://sprites/monster/slime_green/slime_green_die1.png" id="11_cncwe"]
+[ext_resource type="Texture2D" uid="uid://dtt7qoqs1gv7v" path="res://sprites/monster/slime_green/slime_green_die2.png" id="12_mi1dk"]
+[ext_resource type="Texture2D" uid="uid://dnglh4jvc6nlk" path="res://sprites/monster/slime_green/slime_green_die3.png" id="13_v2co7"]
+[ext_resource type="Texture2D" uid="uid://dac2f05131otu" path="res://sprites/monster/slime_green/slime_green_die4.png" id="14_tokx0"]
+[ext_resource type="Texture2D" uid="uid://orv275bmyt41" path="res://sprites/monster/slime_green/slime_green_die5.png" id="15_pl0xs"]
+[ext_resource type="Texture2D" uid="uid://cvtjgwbm6swpu" path="res://sprites/monster/slime_green/slime_green_idle0.png" id="16_3q0er"]
+[ext_resource type="Texture2D" uid="uid://cj6x0trbjl7c" path="res://sprites/monster/slime_green/slime_green_idle1.png" id="17_tc6xm"]
+[ext_resource type="Texture2D" uid="uid://4hihxd70eydn" path="res://sprites/monster/slime_green/slime_green_idle2.png" id="18_cy7a3"]
+[ext_resource type="Texture2D" uid="uid://dpwswdfk80l2d" path="res://sprites/monster/slime_green/slime_green_idle3.png" id="19_6heht"]
+[ext_resource type="Texture2D" uid="uid://d0ecmect10yxd" path="res://sprites/monster/slime_green/slime_green_idle4.png" id="20_jscsg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vr0w3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kik5g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_c4fxf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wb3dq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7nf3t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_su77o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_hnrfp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_bxd4s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_6r3bj")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_l52o4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_cncwe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_mi1dk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_v2co7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_tokx0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_pl0xs")
+}],
+"loop": false,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_l52o4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_cncwe")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_3q0er")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_tc6xm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_cy7a3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_6heht")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_jscsg")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mrqeg"]
+radius = 106.0
+height = 248.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ssiii"]
+radius = 77.0
+height = 222.0
+
+[node name="Monster" type="CharacterBody2D" groups=["enemies"]]
+position = Vector2(-199, -146)
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("1_mrqeg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(260, 129)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_vr0w3")
+animation = &"attack"
+frame = 7
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(242, 164)
+shape = SubResource("CapsuleShape2D_mrqeg")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(243, 166)
+shape = SubResource("CapsuleShape2D_ssiii")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_area_entered"]

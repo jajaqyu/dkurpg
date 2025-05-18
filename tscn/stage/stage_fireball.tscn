@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ubtvx2xf2yqn"]
+
+[ext_resource type="Script" uid="uid://cipx8jsybykar" path="res://script/stage_fireball.gd" id="1_qdmvd"]
+[ext_resource type="PackedScene" uid="uid://d32i7ivu474tf" path="res://tscn/Player.tscn" id="2_6n3nu"]
+[ext_resource type="PackedScene" uid="uid://ck2ccuvxduddx" path="res://tscn/monster_fireball.tscn" id="3_5ks8m"]
+
+[node name="stage_fireball" type="Node2D"]
+script = ExtResource("1_qdmvd")
+player_scene = ExtResource("2_6n3nu")
+monster_scene = ExtResource("3_5ks8m")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="TimeLabel" type="Label" parent="."]
+offset_left = 522.0
+offset_top = 10.0
+offset_right = 562.0
+offset_bottom = 33.0
+
+[node name="GameoverDialog" type="AcceptDialog" parent="."]
+process_mode = 3

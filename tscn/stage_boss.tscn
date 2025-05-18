@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7vqhwjpe17y4"]
+
+[ext_resource type="Script" uid="uid://ck3gr3ryqi5ok" path="res://script/stage_boss.gd" id="1_4d6hm"]
+[ext_resource type="PackedScene" uid="uid://d32i7ivu474tf" path="res://tscn/Player.tscn" id="2_7i2v3"]
+[ext_resource type="PackedScene" uid="uid://bsbwsx2u5tp7" path="res://tscn/monster_boss.tscn" id="3_fq304"]
+
+[node name="stage_aura" type="Node2D"]
+script = ExtResource("1_4d6hm")
+player_scene = ExtResource("2_7i2v3")
+monster_scene = ExtResource("3_fq304")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="TimeLabel" type="Label" parent="."]
+offset_left = 509.0
+offset_top = 9.0
+offset_right = 547.0
+offset_bottom = 32.0
+
+[node name="GameoverDialog" type="AcceptDialog" parent="."]
+process_mode = 3
+auto_translate_mode = 1

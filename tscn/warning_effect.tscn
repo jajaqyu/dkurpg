@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c5ubkotnssvms"]
+
+[node name="WarningEffect" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 79.0
+offset_bottom = 83.0
+color = Color(0.705882, 0, 0, 0.313726)

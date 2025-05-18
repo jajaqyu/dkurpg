@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://src3l75bt236"]
+
+[ext_resource type="Script" uid="uid://cl0uu2urax0py" path="res://script/fireball_monster.gd" id="1_eq6vx"]
+[ext_resource type="Texture2D" uid="uid://b3t4lxwmx37xh" path="res://sprites/fireball_monster.png" id="2_eq6vx"]
+[ext_resource type="Texture2D" uid="uid://b4g5xwryrb21q" path="res://sprites/fireball.png" id="2_nvnpf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_olwj8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nvnpf")
+}],
+"loop": true,
+"name": &"fireball",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_eq6vx")
+}],
+"loop": true,
+"name": &"fireball_monster",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_olwj8"]
+radius = 17.0
+height = 50.0
+
+[node name="fireball_monster" type="Area2D"]
+collision_layer = 8
+script = ExtResource("1_eq6vx")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_olwj8")
+animation = &"fireball_monster"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 29)
+shape = SubResource("CapsuleShape2D_olwj8")

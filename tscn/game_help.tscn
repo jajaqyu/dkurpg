@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbrvt0dfjk1wi"]
+
+[ext_resource type="Script" uid="uid://w3qe2accdgco" path="res://script/game_help.gd" id="1_ui6s2"]
+
+[node name="gameHelp" type="Window"]
+position = Vector2i(200, 36)
+size = Vector2i(400, 500)
+script = ExtResource("1_ui6s2")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 403.0
+offset_bottom = 500.0
+text = "게임에 대한 설명입니다. 저장방식은 어떻게 되고
+ 최종 목표는 또 뭐고 등등
+"

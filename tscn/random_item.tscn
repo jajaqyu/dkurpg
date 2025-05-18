@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://ciqpnkbj3clje"]
+
+[ext_resource type="Script" uid="uid://2ulc5fn5af34" path="res://script/random_item.gd" id="1_lfnhr"]
+
+[node name="RandomItem" type="Window"]
+position = Vector2i(200, 36)
+size = Vector2i(500, 600)
+script = ExtResource("1_lfnhr")
+
+[node name="random" type="Button" parent="."]
+offset_left = 39.0
+offset_top = 280.0
+offset_right = 139.0
+offset_bottom = 340.0
+text = "그냥 뽑"
+
+[node name="minigame" type="Button" parent="."]
+offset_left = 315.0
+offset_top = 278.0
+offset_right = 415.0
+offset_bottom = 338.0
+text = "미니게임"

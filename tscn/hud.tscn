@@ -1,0 +1,85 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh7qegx5m24wy"]
+
+[ext_resource type="Script" uid="uid://xydwten8bbin" path="res://script/hud.gd" id="1_cdsxa"]
+[ext_resource type="Texture2D" uid="uid://cgp1ly01f5rwh" path="res://sprites/fa1.png" id="2_pipsf"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_cdsxa")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 2.675
+anchor_bottom = 3.3
+offset_bottom = 53.0
+
+[node name="HPLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 41.0
+offset_bottom = 23.0
+
+[node name="SkillCooldownLabel" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 115.0
+offset_right = -66.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ATKLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 23.0
+offset_right = 41.0
+offset_bottom = 46.0
+
+[node name="DEFLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 46.0
+offset_right = 41.0
+offset_bottom = 69.0
+
+[node name="INTLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 69.0
+offset_right = 42.0
+offset_bottom = 92.0
+
+[node name="MOVLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 92.0
+offset_right = 41.0
+offset_bottom = 115.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 138.0
+offset_right = 36.0
+offset_bottom = 161.0
+texture = ExtResource("2_pipsf")
+
+[node name="itemCount" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 138.0
+offset_right = 80.0
+offset_bottom = 161.0
+
+[node name="Progress" type="Label" parent="Panel"]
+layout_mode = 0
+offset_top = 161.0
+offset_right = 40.0
+offset_bottom = 184.0

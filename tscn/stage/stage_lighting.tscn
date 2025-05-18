@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://8yrhsxv7ux8a"]
+
+[ext_resource type="Script" uid="uid://bjy6s8hk8ki3h" path="res://script/stage_lighting.gd" id="1_aomsn"]
+[ext_resource type="PackedScene" uid="uid://d32i7ivu474tf" path="res://tscn/Player.tscn" id="2_kxk5r"]
+[ext_resource type="PackedScene" uid="uid://dt1vef3jumfh2" path="res://tscn/monster_lighting.tscn" id="3_37yxh"]
+
+[node name="stage_lighting" type="Node2D"]
+script = ExtResource("1_aomsn")
+player_scene = ExtResource("2_kxk5r")
+monster_scene = ExtResource("3_37yxh")
+
+[node name="TimeLabel" type="Label" parent="."]
+offset_left = 520.0
+offset_top = 6.0
+offset_right = 560.0
+offset_bottom = 29.0
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="GameoverDialog" type="AcceptDialog" parent="."]
+process_mode = 3
