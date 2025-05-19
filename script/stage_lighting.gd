@@ -58,7 +58,7 @@ func stat_update():
 	# 스탯 업데이트
 	
 	var db = SQLite.new()
-	db.path = "res://dkurpg.db"
+	db.path = HUD.db_path
 	db.open_db()
 	#스텟 늘리는 양 (조절가능)
 	tmp = monsters_defeated/2

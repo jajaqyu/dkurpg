@@ -21,9 +21,17 @@ var ATKItem
 var DEFItem
 var INTItem
 var MOVItem
-
 var skill_cooldown := 5.0
 var skill_timer := 0.0
+
+var db_path ="res://dkurpg.db"
+
+#func _ready():
+	#데이터베이스 경로 설정	
+	# 빌드된 exe 실행 중일 때 (exe 파일로 만들때에는 이 부분을 주석 해재 후 export)
+	#var exe_path = OS.get_executable_path()
+	#var exe_dir = exe_path.get_base_dir()
+	#db_path = exe_dir + "/dkurpg.db"
 
 func _process(delta):
 	if skill_timer > 0:

@@ -1,6 +1,5 @@
 extends Window
 
-
 func _ready():
 
 	connect("close_requested", Callable(self, "_on_close_requested"))
@@ -13,7 +12,7 @@ func _input(event):
 		hide()
 func show_trait(items): #이미지는 직업 캐릭터 사진과 스킬 모습
 	var db = SQLite.new()
-	db.path = "res://dkurpg.db"
+	db.path = HUD.db_path
 	db.open_db()
 	
 	db.query("SELECT appearance, description FROM Item WHERE Item_name = '%s'" %items[0])

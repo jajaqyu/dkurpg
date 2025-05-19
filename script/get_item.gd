@@ -20,7 +20,7 @@ func _on_close_requested():
 	queue_free()
 func _on_get_button_pressed():
 	db = SQLite.new()
-	db.path = "res://dkurpg.db"
+	db.path = HUD.db_path
 	db.open_db()
 	var tmp = Item_info["Item_name"]
 	db.query("UPDATE character SET %s = %s WHERE character_name = %s"%[Type,tmp,HUD.char_name])
@@ -30,7 +30,7 @@ func _on_get_button_pressed():
 
 func show_div():
 	db = SQLite.new()
-	db.path = "res://dkurpg.db"
+	db.path = HUD.db_path
 	db.open_db()
 	db.query("SELECT plus_ATK, plus_DEF,plus_INT,plus_MOV,rare FROM Item WHERE Item_name = (SELECT %s FROM Character WHERE character_name = '%s' ) " %[Type,HUD.char_name]) #내가 입고있는것
 	var row = db.query_result[0]

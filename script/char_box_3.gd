@@ -52,7 +52,7 @@ func _on_plus_button_pressed(ID):
 func _on_delete_button_pressed(character_name):
 	db = SQLite.new()
 	print(character_name)
-	db.path = "res://dkurpg.db"
+	db.path = HUD.db_path
 	db.open_db()
 	db.query("DELETE FROM character WHERE character_name = '%s'" %character_name)
 	get_tree().change_scene_to_file("res://tscn/character_select.tscn")

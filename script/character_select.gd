@@ -8,8 +8,9 @@ var username  # 로그인한 아이디
 @onready var char_box3 = $CharBox3
 @onready var create_button = $create
 func _ready():
+	
 	db = SQLite.new()
-	db.path = "res://dkurpg.db"
+	db.path = HUD.db_path
 	db.open_db()
 	# username은 show_character_select_scene에서 전달받아 저장
 	load_characters()

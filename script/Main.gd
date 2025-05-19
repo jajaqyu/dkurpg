@@ -133,7 +133,7 @@ func show_login_scene():
 
 func item_check(): #이미지는 직업 캐릭터 사진과 스킬 모습
 	var db = SQLite.new()
-	db.path = "res://dkurpg.db"
+	db.path = HUD.db_path
 	db.open_db()
 	db.query("SELECT ItemHat, ItemArmor, ItemShoes, Itemweapon FROM character WHERE character_name = '%s'" %HUD.char_name)
 

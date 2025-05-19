@@ -11,7 +11,6 @@ var can_skill = true
 @onready var shoot_timer = $ShootTimer
 @onready var anim = $AnimatedSprite2D
 signal player_died
-var db_path = "res://dkurpg.db"
 var health :int
 var curHP : int
 var char_name
@@ -37,6 +36,8 @@ var is_dash_attack = false
 
 #idle 이랑 walk도 직업 따라 바뀌게 구현
 func _ready():
+
+	
 	char_name = HUD.char_name
 	load_stats_from_db(char_name)
 	plus_item_stat(item_check())
@@ -54,7 +55,7 @@ func _ready():
 	
 func load_stats_from_db(char_name):	
 	var db = SQLite.new()
-	db.path = db_path
+	db.path = HUD.db_path
 	db.open_db()
 	var table = []
 	db.query("SELECT HP,ATK,DEF,INT,MOV,itemCount,Progress,Job FROM character WHERE character_name = '%s' LIMIT 1;"%char_name)
@@ -282,7 +283,7 @@ func _on_dash_timer_timeout():
 
 func item_check(): #이미지는 직업 캐릭터 사진과 스킬 모습
 	var db = SQLite.new()
-	db.path = "res://dkurpg.db"
+	db.path = HUD.db_path
 	db.open_db()
 	db.query("SELECT ItemHat, ItemArmor, ItemShoes, Itemweapon FROM character WHERE character_name = '%s'" %HUD.char_name)
 
@@ -314,7 +315,7 @@ func item_check(): #이미지는 직업 캐릭터 사진과 스킬 모습
 	
 func plus_item_stat(items):
 	var db = SQLite.new()
-	db.path = "res://dkurpg.db"
+	db.path = HUD.db_path
 	db.open_db()
 	var plus_ATK = 0
 	var plus_DEF = 0

@@ -13,7 +13,7 @@ func _ready():
 
 func init_db():
 	db = SQLite.new()
-	db.path = "res://dkurpg.db"
+	db.path = HUD.db_path
 	db.open_db()
 	db.query("CREATE TABLE IF NOT EXISTS UserInfo (ID VARCHAR(20) PRIMARY KEY, Password VARCHAR(20))")
 

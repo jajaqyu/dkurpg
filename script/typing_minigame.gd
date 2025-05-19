@@ -21,7 +21,8 @@ var current_sentence: String = ""
 signal game_result(result: bool)
 func _ready():
 	# SQLite 데이터베이스 설정
-	sqlite.path = "res://dkurpg.db"
+	
+	sqlite.path = HUD.db_path
 	var success = sqlite.open_db()
 	print("SQLite open success: ", success)
 	if not success:

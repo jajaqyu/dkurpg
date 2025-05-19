@@ -8,7 +8,7 @@ var db
 var button_group
 func _ready():
 	db = SQLite.new()
-	db.path = "res://dkurpg.db"
+	db.path = HUD.db_path
 	db.open_db()
 	create_button.pressed.connect(_on_create_button_pressed)
 	button_group = radio1.button_group 

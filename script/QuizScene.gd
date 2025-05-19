@@ -18,7 +18,7 @@ signal quiz_result(is_correct: bool)
 
 func _ready():
 	db = SQLite.new()
-	db.path = "res://dkurpg.db"
+	db.path = HUD.db_path
 	db.open_db()
 	for i in range(buttons.size()):
 		buttons[i].pressed.connect(_on_answer_pressed.bind(i))

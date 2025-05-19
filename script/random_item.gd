@@ -29,7 +29,7 @@ func _on_random_button_pressed():
 	#rare = weighted_random_number(plusProbability)
 	rare = 3 #테스트용
 	var db = SQLite.new()
-	db.path = "res://dkurpg.db"
+	db.path = HUD.db_path
 	db.open_db()
 	db.query("SELECT Item_name, plus_ATK, plus_DEF,plus_INT,plus_MOV,description, appearance, rare FROM Item WHERE type = '%s' AND Rare = %d" %[type,rare]) #Item은 rare에 따라 10까지 있다고 가정
 	var result = db.query_result[0]

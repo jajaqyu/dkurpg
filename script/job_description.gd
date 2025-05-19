@@ -14,7 +14,7 @@ func _input(event):
 
 func show_trait(trait_name): #이미지는 직업 캐릭터 사진과 스킬 모습
 	var db = SQLite.new()
-	db.path = "res://dkurpg.db"
+	db.path = HUD.db_path
 	db.open_db()
 	db.query("SELECT appearance, description FROM Item WHERE Item_name = '%s'" %trait_name)
 
