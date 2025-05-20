@@ -17,6 +17,7 @@ var char_name
 
 #파이어볼 크기
 @export var scale_multiplier: float = 1.0  # 기본 크기
+var damage_multiplier = 1.0
 
 #근접공격 스킬
 var is_reinforce =false
@@ -42,8 +43,8 @@ func _ready():
 	load_stats_from_db(char_name)
 	plus_item_stat(item_check())
 	curHP = health
-	speed = 20000+HUD.MOV*1000
-	HUD.skill_cooldown = 5 -0.1*HUD.INT
+	speed = 20000+(HUD.MOV+HUD.MOVItem)*1000
+	HUD.skill_cooldown = 5 -0.1*(HUD.INT+HUD.INTItem)
 	$attackeparent/nearAttack.monitoring = false
 	animated_sprite.play("idle")
 	add_to_group("player")  # 플레이어를 그룹에 추가
@@ -94,6 +95,7 @@ func _process(delta):
 			if HUD.ATK >= 20 :
 				if HUD.ATK >=40:
 					scale_multiplier = 2.0
+					damage_multiplier = 2.0
 					shoot()
 					HUD.use_skill()
 					can_skill = false	
@@ -141,7 +143,7 @@ func shoot():
 	fireball.global_position = global_position
 	
 	fireball.scale_multiplier = scale_multiplier
-	fireball.damage = HUD.ATK
+	fireball.damage = HUD.ATK * damage_multiplier
 	
 	get_parent().add_child(fireball)
 
@@ -171,7 +173,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func near_attack(direction: Vector2):
-	var damage = HUD.ATK
+	var damage = (HUD.ATK+HUD.ATKItem) + (HUD.MOV + HUD.MOVItem) * 0.25
 	if is_dash_attack:
 		damage *=2
 		is_dash_attack = false
@@ -254,7 +256,7 @@ func take_damage(amount):
 	elif is_heal:
 		curHP += amount
 	else:
-		amount = amount-HUD.DEF
+		amount = amount-(HUD.DEF+HUD.DEFItem)
 		if amount>=0:
 			curHP -= amount
 		else:

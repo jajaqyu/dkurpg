@@ -27,6 +27,7 @@ layout_mode = 0
 offset_left = 120.0
 offset_right = 400.0
 offset_bottom = 120.0
+autowrap_mode = 3
 
 [node name="Panel2" type="Panel" parent="."]
 offset_left = 1.0
@@ -44,6 +45,7 @@ layout_mode = 0
 offset_left = 120.0
 offset_right = 400.0
 offset_bottom = 120.0
+autowrap_mode = 3
 
 [node name="Panel3" type="Panel" parent="."]
 offset_left = 1.0
@@ -61,6 +63,7 @@ layout_mode = 0
 offset_left = 120.0
 offset_right = 400.0
 offset_bottom = 120.0
+autowrap_mode = 3
 
 [node name="Panel4" type="Panel" parent="."]
 anchors_preset = -1
@@ -83,3 +86,4 @@ layout_mode = 0
 offset_left = 120.0
 offset_right = 400.0
 offset_bottom = 120.0
+autowrap_mode = 3

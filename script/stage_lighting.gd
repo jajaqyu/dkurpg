@@ -62,7 +62,7 @@ func stat_update():
 	db.open_db()
 	#스텟 늘리는 양 (조절가능)
 	tmp = monsters_defeated/2
-	db.query("UPDATE character SET MOV = MOV + %d, Progress = %d, ItemCount = %d WHERE character_name = '%s'" % [tmp, HUD.progress,HUD.itemCount,HUD.char_name])
+	db.query("UPDATE character SET MOV = MOV + %d, Progress = %d, HP=%d,ItemCount = %d WHERE character_name = '%s'" % [tmp, HUD.progress,HUD.progress/2,HUD.itemCount,HUD.char_name])
 	db.close_db()
 func _on_game_over_confirmed():
 	get_tree().paused = false

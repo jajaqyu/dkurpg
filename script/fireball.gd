@@ -31,6 +31,7 @@ func _physics_process(delta):
 
 func _on_area_entered(area):
 	if area.is_in_group("enemies"):
+		print("ball")
 		area.get_parent().take_damage(damage)  # 몬스터의 부모 노드(CharacterBody2D)에 데미지
 	queue_free()
 #

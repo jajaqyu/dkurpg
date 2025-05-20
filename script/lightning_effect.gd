@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var damage: int = 1
+@export var damage: int = HUD.progress / 4 + 1
 @onready
 var animated_sprite = $AnimatedSprite2D
 

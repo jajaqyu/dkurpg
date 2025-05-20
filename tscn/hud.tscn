@@ -15,6 +15,7 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 2.675
 anchor_bottom = 3.3
+offset_right = 23.0
 offset_bottom = 53.0
 
 [node name="HPLabel" type="Label" parent="Panel"]

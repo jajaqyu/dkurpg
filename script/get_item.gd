@@ -2,11 +2,11 @@ extends Window
 @onready var getButton = $Button
 @onready var xButton = $Button2
 
-var plus_ATK = "" 
-var plus_DEF = ""
-var plus_INT = ""
-var plus_MOV = ""
-var rare = ""
+var plus_ATK = 0
+var plus_DEF = 0
+var plus_INT = 0
+var plus_MOV = 0
+var rare = 0
 var db
 var Item_info
 var Type
@@ -18,12 +18,13 @@ func _ready():
 
 func _on_close_requested():
 	queue_free()
+# 뽑으면 바로 db 저장 
 func _on_get_button_pressed():
 	db = SQLite.new()
 	db.path = HUD.db_path
 	db.open_db()
 	var tmp = Item_info["Item_name"]
-	db.query("UPDATE character SET %s = %s WHERE character_name = %s"%[Type,tmp,HUD.char_name])
+	db.query("UPDATE character SET %s = '%s' WHERE character_name = '%s'"%[Type,tmp,HUD.char_name])
 	db.close_db()
 	queue_free()
 
@@ -33,8 +34,9 @@ func show_div():
 	db.path = HUD.db_path
 	db.open_db()
 	db.query("SELECT plus_ATK, plus_DEF,plus_INT,plus_MOV,rare FROM Item WHERE Item_name = (SELECT %s FROM Character WHERE character_name = '%s' ) " %[Type,HUD.char_name]) #내가 입고있는것
-	var row = db.query_result[0]
+	
 	if db.query_result.size() > 0:
+		var row = db.query_result[0]
 		plus_ATK = row["plus_ATK"]
 		plus_DEF = row["plus_DEF"]
 		plus_INT = row["plus_INT"]

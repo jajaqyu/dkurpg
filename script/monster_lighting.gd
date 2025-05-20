@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var health = 3
+var health = HUD.progress  + 5
 var respawn_time = 10.0
 var respawn_timer = 0.0
 var player = null
@@ -125,7 +125,7 @@ func _spawn_lightning(pos: Vector2):
 func _on_area_entered(area):
 	print("Monster Hitbox detected area: ", area.name)
 	if area.is_in_group("fireball"):
-		take_damage(damage_number)
+		take_damage(area.damage)
 		area.queue_free()
 		print("Monster hit by fireball!")
 func _try_give_item_to_player():

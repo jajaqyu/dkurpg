@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
-var health = 3
+var health = HUD.progress * 1.5 +5
+var damage_number = HUD.progress/5 +1
+
 var respawn_time = 10.0
 var respawn_timer = 0.0
 var player = null
@@ -13,7 +15,7 @@ signal died
 @onready var animated_sprite = $AnimatedSprite2D
 enum State { IDLE, WALK, ATTACK, DIE ,HIT}
 var current_state = State.IDLE
-var damage_number = 5
+
 
 func _ready():
 	print("Monster _ready() called!")
@@ -99,7 +101,8 @@ func attack():
 func _on_area_entered(area):
 	print("Monster Hitbox detected area: ", area.name)
 	if area.is_in_group("fireball"):
-		take_damage(HUD.ATK)
+		print("mob")
+		take_damage(area.damage)
 		area.queue_free()
 		print("Monster hit by fireball!")
 func _try_give_item_to_player():

@@ -50,6 +50,7 @@ offset_bottom = 275.0
 offset_top = 275.0
 offset_right = 400.0
 offset_bottom = 350.0
+autowrap_mode = 3
 
 [node name="Label7" type="Label" parent="."]
 offset_top = 350.0

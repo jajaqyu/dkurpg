@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var health = 3
+var health = HUD.progress * 1.5+ 5
 var respawn_time = 10.0
 var respawn_timer = 0.0
 var player = null
@@ -117,7 +117,7 @@ func attack():
 func _on_area_entered(area):
 	print("Monster Hitbox detected area: ", area.name)
 	if area.is_in_group("fireball"):
-		take_damage(1)
+		take_damage(area.damage)
 		area.queue_free()
 func _try_give_item_to_player():
 	if player:  # player 변수에 플레이어 노드가 연결되어 있다고 가정

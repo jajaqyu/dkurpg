@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var damage: int = 5
+@export var damage: int = HUD.progress / 6 + 1
 @export var damage_interval: float = 1.0
 var player_in_area = null
 var timer := 0.0

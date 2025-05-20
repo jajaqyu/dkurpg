@@ -5,7 +5,7 @@ extends Window
 var item_scene = preload("res://tscn/get_item.tscn")
 var plusProbability = false
 var minigameCount = 2
-var type = "ItemArmor"
+var type : int
 var rare
 
 
@@ -13,9 +13,17 @@ func _ready():
 	minigameButton.pressed.connect(_on_minigame_button_pressed)
 	randomButton.pressed.connect(_on_random_button_pressed)
 	connect("close_requested", Callable(self, "_on_close_requested"))
-	print(1111111)
+
+
 func _on_close_requested():
-	hide()  # 또는 queue_free()로 완전히 제거
+	#hide()  # 또는 queue_free()로 완전히 제거
+	var packed_scene = preload("res://tscn/Main.tscn")
+	var new_scene = packed_scene.instantiate()
+	new_scene.login = true
+	get_tree().current_scene.queue_free()
+	get_tree().root.add_child(new_scene)
+	get_tree().current_scene = new_scene	
+
 
 func _on_minigame_button_pressed():
 	var idx= randi() % minigameCount
@@ -26,17 +34,22 @@ func _on_minigame_button_pressed():
 
 
 func _on_random_button_pressed():
-	#rare = weighted_random_number(plusProbability)
-	rare = 3 #테스트용
-	var db = SQLite.new()
-	db.path = HUD.db_path
-	db.open_db()
-	db.query("SELECT Item_name, plus_ATK, plus_DEF,plus_INT,plus_MOV,description, appearance, rare FROM Item WHERE type = '%s' AND Rare = %d" %[type,rare]) #Item은 rare에 따라 10까지 있다고 가정
-	var result = db.query_result[0]
-	var itemScene = item_scene.instantiate()
-	itemScene.Type = type
-	itemScene.Item_info = result
-	add_child(itemScene)
+	if HUD.itemCount >0:
+		rare = weighted_random_number(plusProbability)
+		type = randi()% 4 
+		var Type = ['ItemHat','ItemArmor','ItemShoes','ItemWeapon']
+		var db = SQLite.new()
+		db.path = HUD.db_path
+		db.open_db()
+		db.query("SELECT Item_name, plus_ATK, plus_DEF,plus_INT,plus_MOV,description, appearance, rare FROM Item WHERE type = '%s' AND Rare = %d" %[Type[type],rare]) #Item은 rare에 따라 10까지 있다고 가정
+		var result = db.query_result[0]
+		var itemScene = item_scene.instantiate()
+		itemScene.Type = Type[type]
+		itemScene.Item_info = result
+		add_child(itemScene)
+		HUD.itemCount -=1
+		HUD.set_itemCount()
+		db.query("UPDATE character SET %s = %d WHERE character_name = '%s'"%['itemCount',HUD.itemCount,HUD.char_name])
 	
 
 func show_quiz():

@@ -6,9 +6,9 @@ var popup_scene2 = preload("res://tscn/item_view.tscn")
 var popup_instance = null
 @export var player_scene: PackedScene
 @export var portal_scene: PackedScene
-@onready var my_panel1 = $Panel
-@onready var my_panel2 = $Panel2
-@onready var my_panel3 = $Panel3
+@onready var my_panel1 = $CanvasLayer/Panel
+@onready var my_panel2 = $CanvasLayer/Panel2
+@onready var my_panel3 = $CanvasLayer/Panel3
 var char_name : String
 var login = false
 @export var map_scene: PackedScene
@@ -102,7 +102,7 @@ func _input(event):
 		add_child(popup_instance)
 
 		popup_instance.show()
-	elif event.is_action_pressed("show_popup_j"): #L
+	elif event.is_action_pressed("show_popup_j"): #j
 		popup_instance = popup_scene2.instantiate()
 		popup_instance.show_trait(item_check())
 		add_child(popup_instance)
