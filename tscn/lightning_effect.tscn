@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://dtn0xy8tsytbt"]
 
 [ext_resource type="Script" uid="uid://0sqnc7mxoblo" path="res://script/lightning_effect.gd" id="1_0tbdx"]
-[ext_resource type="Texture2D" uid="uid://chincl1m3x8qw" path="res://sprites/ezgif-split/tile000.png" id="2_0ybs4"]
-[ext_resource type="Texture2D" uid="uid://dodqfsxwu2xv2" path="res://sprites/ezgif-split/tile002.png" id="3_0ae0n"]
-[ext_resource type="Texture2D" uid="uid://cq4s3vlke2o4l" path="res://sprites/ezgif-split/tile004.png" id="4_twi05"]
-[ext_resource type="Texture2D" uid="uid://cwa5i3kpghhcn" path="res://sprites/ezgif-split/tile006.png" id="5_qa22e"]
-[ext_resource type="Texture2D" uid="uid://b83vtit50roks" path="res://sprites/ezgif-split/tile008.png" id="6_tmkm5"]
+[ext_resource type="Texture2D" uid="uid://chincl1m3x8qw" path="res://sprites/lightingEffect/tile000.png" id="2_0ybs4"]
+[ext_resource type="Texture2D" uid="uid://dodqfsxwu2xv2" path="res://sprites/lightingEffect/tile002.png" id="3_0ae0n"]
+[ext_resource type="Texture2D" uid="uid://cq4s3vlke2o4l" path="res://sprites/lightingEffect/tile004.png" id="4_twi05"]
+[ext_resource type="Texture2D" uid="uid://cwa5i3kpghhcn" path="res://sprites/lightingEffect/tile006.png" id="5_qa22e"]
+[ext_resource type="Texture2D" uid="uid://b83vtit50roks" path="res://sprites/lightingEffect/tile008.png" id="6_tmkm5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0xkha"]
 animations = [{

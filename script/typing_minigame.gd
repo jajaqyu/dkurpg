@@ -74,7 +74,7 @@ func setup_ui():
 	var viewport_size = get_viewport_rect().size
 # 배경 이미지
 	var background = Sprite2D.new()
-	background.texture = load("res://background.jpg")
+	background.texture = load("res://sprites/minigame_typing/background.jpg")
 	background.position = Vector2(0, 0)
 	add_child(background)
 	background.scale = Vector2(3,2.5)
@@ -89,7 +89,7 @@ func setup_ui():
 	input_field = LineEdit.new()
 	input_field.position = Vector2(300, 400)
 	input_field.size = Vector2(500, 50)
-	input_field.add_theme_stylebox_override("normal", create_stylebox("res://input_field.png"))
+	input_field.add_theme_stylebox_override("normal", create_stylebox("res://sprites/minigame_typing/input_field.png"))
 	input_field.add_theme_color_override("font_color", Color.BLUE)
 	input_field.text_submitted.connect(_on_input_submitted)
 	add_child(input_field)

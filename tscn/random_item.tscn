@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://ciqpnkbj3clje"]
 
 [ext_resource type="Script" uid="uid://2ulc5fn5af34" path="res://script/random_item.gd" id="1_lfnhr"]
-[ext_resource type="Texture2D" uid="uid://dkloljelnb35k" path="res://randomitembox.PNG" id="2_di5ly"]
+[ext_resource type="Texture2D" uid="uid://dkloljelnb35k" path="res://sprites/randomitembox.PNG" id="2_di5ly"]
 [ext_resource type="FontFile" uid="uid://6mdnevi1pfkg" path="res://Bond Time.ttf" id="3_l6yl1"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5n8je"]

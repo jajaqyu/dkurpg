@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://5k7ebandqnx6"]
 
 [ext_resource type="Script" uid="uid://birlri5wrt7hh" path="res://script/login_scene.gd" id="1_mn7xn"]
-[ext_resource type="Texture2D" uid="uid://cdu1ad47frbxt" path="res://login_background.jpg" id="2_n2ifi"]
+[ext_resource type="Texture2D" uid="uid://cdu1ad47frbxt" path="res://sprites/login_background.jpg" id="2_n2ifi"]
 [ext_resource type="FontFile" uid="uid://6mdnevi1pfkg" path="res://Bond Time.ttf" id="3_1kfqh"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i62le"]
