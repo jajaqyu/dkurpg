@@ -1,6 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhjfai5y4qj6e"]
+[gd_scene load_steps=5 format=3 uid="uid://bhjfai5y4qj6e"]
 
 [ext_resource type="Script" uid="uid://dbfusl3w61gl5" path="res://script/create_character.gd" id="1_tceku"]
+[ext_resource type="Texture2D" uid="uid://cdu1ad47frbxt" path="res://login_background.jpg" id="2_b85vr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dr6io"]
+texture = ExtResource("2_b85vr")
+modulate_color = Color(0.614963, 0.587007, 0.474376, 1)
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_tceku"]
 
@@ -10,6 +15,11 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_tceku")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_dr6io")
 
 [node name="SW" type="Button" parent="."]
 layout_mode = 0
