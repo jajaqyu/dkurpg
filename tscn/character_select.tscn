@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://dim7eqbqs15mo"]
+[gd_scene load_steps=7 format=3 uid="uid://dim7eqbqs15mo"]
 
 [ext_resource type="Script" uid="uid://c6yjdsp47oype" path="res://script/character_select.gd" id="1_bw16d"]
 [ext_resource type="Script" uid="uid://cr2c8gwr6om6v" path="res://script/CharBox1.gd" id="2_jp0a2"]
+[ext_resource type="Texture2D" uid="uid://cdu1ad47frbxt" path="res://login_background.jpg" id="2_n17al"]
 [ext_resource type="Script" uid="uid://r3jji88ksci3" path="res://script/char_box_2.gd" id="3_jp0a2"]
 [ext_resource type="Script" uid="uid://cxcxyjg7adlr0" path="res://script/char_box_3.gd" id="4_hr854"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7l02t"]
+texture = ExtResource("2_n17al")
+modulate_color = Color(0.614963, 0.587007, 0.474376, 1)
 
 [node name="CharacterSelect" type="Control"]
 layout_mode = 3
@@ -11,6 +16,11 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_bw16d")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_7l02t")
 
 [node name="CharBox1" type="Control" parent="."]
 anchors_preset = 0

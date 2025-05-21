@@ -1,0 +1,35 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://6mdnevi1pfkg"
+path="res://.godot/imported/Bond Time.ttf-6eca7852432e1be32adbb2c1829469ce.fontdata"
+
+[deps]
+
+source_file="res://Bond Time.ttf"
+dest_files=["res://.godot/imported/Bond Time.ttf-6eca7852432e1be32adbb2c1829469ce.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+disable_embedded_bitmaps=true
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=4
+keep_rounding_remainders=true
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

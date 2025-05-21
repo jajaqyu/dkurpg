@@ -1,22 +1,61 @@
-[gd_scene load_steps=2 format=3 uid="uid://ciqpnkbj3clje"]
+[gd_scene load_steps=7 format=3 uid="uid://ciqpnkbj3clje"]
 
 [ext_resource type="Script" uid="uid://2ulc5fn5af34" path="res://script/random_item.gd" id="1_lfnhr"]
+[ext_resource type="Texture2D" uid="uid://dkloljelnb35k" path="res://randomitembox.PNG" id="2_di5ly"]
+[ext_resource type="FontFile" uid="uid://6mdnevi1pfkg" path="res://Bond Time.ttf" id="3_l6yl1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5n8je"]
+texture = ExtResource("2_di5ly")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_di5ly"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l6yl1"]
 
 [node name="RandomItem" type="Window"]
 position = Vector2i(200, 36)
 size = Vector2i(500, 600)
 script = ExtResource("1_lfnhr")
 
+[node name="Panel" type="Panel" parent="."]
+offset_left = -3.0
+offset_top = -18.0
+offset_right = 516.0
+offset_bottom = 617.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_5n8je")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -202.0
+offset_top = -248.0
+offset_right = 213.0
+offset_bottom = -138.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.608323, 0.416014, 0.0388131, 1)
+theme_override_fonts/font = ExtResource("3_l6yl1")
+theme_override_font_sizes/font_size = 93
+text = "random"
+
 [node name="random" type="Button" parent="."]
-offset_left = 39.0
-offset_top = 280.0
-offset_right = 139.0
-offset_bottom = 340.0
-text = "그냥 뽑"
+offset_left = 35.0
+offset_top = 212.0
+offset_right = 476.0
+offset_bottom = 389.0
+theme_override_fonts/font = ExtResource("3_l6yl1")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxEmpty_di5ly")
+text = "Get Random Item"
 
 [node name="minigame" type="Button" parent="."]
-offset_left = 315.0
-offset_top = 278.0
-offset_right = 415.0
-offset_bottom = 338.0
-text = "미니게임"
+offset_left = 34.0
+offset_top = 412.0
+offset_right = 476.0
+offset_bottom = 589.0
+theme_override_fonts/font = ExtResource("3_l6yl1")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxEmpty_l6yl1")
+text = "Go to MINIGAME"
