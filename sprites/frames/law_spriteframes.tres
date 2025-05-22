@@ -1,0 +1,126 @@
+[gd_resource type="SpriteFrames" load_steps=25 format=3 uid="uid://cm4g0r1n1dald"]
+
+[ext_resource type="Texture2D" uid="uid://boivjmkkf738e" path="res://sprites/character/law/attack/0.png" id="1_r11x0"]
+[ext_resource type="Texture2D" uid="uid://bpc071jow72uu" path="res://sprites/character/law/attack/1.png" id="2_qbw32"]
+[ext_resource type="Texture2D" uid="uid://c751sdqp7hjni" path="res://sprites/character/law/attack/3.png" id="3_jtjm0"]
+[ext_resource type="Texture2D" uid="uid://dhb7a15maiyt8" path="res://sprites/character/law/attack/4.png" id="4_j1tgr"]
+[ext_resource type="Texture2D" uid="uid://b1kcq38uhqjwi" path="res://sprites/character/law/attack/2.png" id="5_54wtq"]
+[ext_resource type="Texture2D" uid="uid://b5jk4b76554" path="res://sprites/character/law/attack/5.png" id="6_uub67"]
+[ext_resource type="Texture2D" uid="uid://d17lwtbisdqro" path="res://sprites/character/law/die/0.png" id="7_3yk57"]
+[ext_resource type="Texture2D" uid="uid://bn2quyf286r63" path="res://sprites/character/law/die/1.png" id="8_rqly0"]
+[ext_resource type="Texture2D" uid="uid://by1j84k0p1e6d" path="res://sprites/character/law/die/2.png" id="9_t75ps"]
+[ext_resource type="Texture2D" uid="uid://buy10134cx7ca" path="res://sprites/character/law/die/3.png" id="10_bnv76"]
+[ext_resource type="Texture2D" uid="uid://cryints20cwec" path="res://sprites/character/law/die/4.png" id="11_qfaxa"]
+[ext_resource type="Texture2D" uid="uid://jke8js0a05q" path="res://sprites/character/law/die/5.png" id="12_2kcxv"]
+[ext_resource type="Texture2D" uid="uid://dupxyyvsnjm3e" path="res://sprites/character/law/hit/0.png" id="13_jk3mg"]
+[ext_resource type="Texture2D" uid="uid://c54t70nrmnsyq" path="res://sprites/character/law/hit/1.png" id="14_keqs4"]
+[ext_resource type="Texture2D" uid="uid://bcbt73a5j3bqv" path="res://sprites/character/law/hit/2.png" id="15_kpcvk"]
+[ext_resource type="Texture2D" uid="uid://isnvnruktgid" path="res://sprites/character/law/hit/3.png" id="16_6ghy5"]
+[ext_resource type="Texture2D" uid="uid://cb7xhvm2mtx5x" path="res://sprites/character/law/idle/0.png" id="17_84eht"]
+[ext_resource type="Texture2D" uid="uid://bmy5j5dg28k0d" path="res://sprites/character/law/idle/2.png" id="18_p3oex"]
+[ext_resource type="Texture2D" uid="uid://dnmd30y6s51e0" path="res://sprites/character/law/idle/3.png" id="19_3y1mr"]
+[ext_resource type="Texture2D" uid="uid://chxctobht5l5y" path="res://sprites/character/law/idle/5.png" id="20_jxq3v"]
+[ext_resource type="Texture2D" uid="uid://cnrjqfyiy52xl" path="res://sprites/character/law/walk/0.png" id="21_hv2jj"]
+[ext_resource type="Texture2D" uid="uid://bh85txcjdo81g" path="res://sprites/character/law/walk/1.png" id="22_fq8l0"]
+[ext_resource type="Texture2D" uid="uid://c8srh0me57pu0" path="res://sprites/character/law/walk/2.png" id="23_7si3h"]
+[ext_resource type="Texture2D" uid="uid://bhqixydlgj6gc" path="res://sprites/character/law/walk/3.png" id="24_8b8ar"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_r11x0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qbw32")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jtjm0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_j1tgr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_54wtq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uub67")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_3yk57")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rqly0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_t75ps")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_bnv76")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_qfaxa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_2kcxv")
+}],
+"loop": false,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_jk3mg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_keqs4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_kpcvk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_6ghy5")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_84eht")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_p3oex")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_3y1mr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_jxq3v")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_hv2jj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_fq8l0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_7si3h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_8b8ar")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
