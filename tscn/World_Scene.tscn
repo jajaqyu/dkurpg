@@ -24,3 +24,4 @@ tile_set = ExtResource("1_swnxe")
 collision_visibility_mode = 2
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
+position = Vector2(557, 740)

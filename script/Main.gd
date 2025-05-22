@@ -4,6 +4,7 @@ var popup_scene = preload("res://tscn/job_description.tscn")
 var popup_scene1 = preload("res://tscn/game_help.tscn")
 var popup_scene2 = preload("res://tscn/item_view.tscn")
 var popup_instance = null
+@export var hud_scene: PackedScene
 @export var player_scene: PackedScene
 @export var portal_scene: PackedScene
 @onready var my_panel1 = $CanvasLayer/Panel
@@ -24,9 +25,13 @@ func _ready():
 		playGame()
 
 func playInit():
+	
 	current_map = map_scene.instantiate()
 	add_child(current_map)
 	var spawn_point = current_map.get_node("PlayerSpawn").global_position
+	
+	var hud = hud_scene.instantiate()
+	add_child(hud)
 	
 	var player = player_scene.instantiate()
 	player.global_position = spawn_point

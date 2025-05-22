@@ -1,13 +1,13 @@
-extends Control
+extends CanvasLayer
 
-@onready var hp_label = $Panel/HPLabel
-@onready var atk_label = $Panel/ATKLabel
-@onready var def_label = $Panel/DEFLabel
-@onready var int_label = $Panel/INTLabel
-@onready var mov_label = $Panel/MOVLabel
-@onready var skill_cooldown_label = $Panel/SkillCooldownLabel
-@onready var itemCount_label = $Panel/itemCount
-@onready var progress_label = $Panel/Progress
+@onready var hp_label = $HUD/Panel/HPLabel
+@onready var atk_label = $HUD/Panel/ATKLabel
+@onready var def_label = $HUD/Panel/DEFLabel
+@onready var int_label = $HUD/Panel/INTLabel
+@onready var mov_label = $HUD/Panel/MOVLabel
+@onready var skill_cooldown_label = $HUD/Panel/SkillCooldownLabel
+@onready var itemCount_label = $HUD/Panel/itemCount
+@onready var progress_label = $HUD/Panel/Progress
 var id
 var char_name =""
 var progress

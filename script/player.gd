@@ -43,7 +43,7 @@ func _ready():
 	load_stats_from_db(char_name)
 	plus_item_stat(item_check())
 	curHP = health
-	speed = 20000+(HUD.MOV+HUD.MOVItem)*1000
+	speed = 3000+(HUD.MOV+HUD.MOVItem)*100
 	HUD.skill_cooldown = 5 -0.1*(HUD.INT+HUD.INTItem)
 	$attackeparent/nearAttack.monitoring = false
 	animated_sprite.play("idle")
