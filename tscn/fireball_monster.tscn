@@ -1,19 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://src3l75bt236"]
+[gd_scene load_steps=5 format=3 uid="uid://src3l75bt236"]
 
 [ext_resource type="Script" uid="uid://cl0uu2urax0py" path="res://script/fireball_monster.gd" id="1_eq6vx"]
 [ext_resource type="Texture2D" uid="uid://b3t4lxwmx37xh" path="res://sprites/fireball_monster.png" id="2_eq6vx"]
-[ext_resource type="Texture2D" uid="uid://b4g5xwryrb21q" path="res://sprites/fireball.png" id="2_nvnpf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_olwj8"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_nvnpf")
-}],
-"loop": true,
-"name": &"fireball",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_eq6vx")

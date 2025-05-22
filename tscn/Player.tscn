@@ -24,15 +24,16 @@ size = Vector2(359, 194)
 script = ExtResource("1_rv870")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(20, 74)
-scale = Vector2(1.2, 1.2)
+position = Vector2(-4, 9)
+scale = Vector2(0.1, 0.1)
 sprite_frames = ExtResource("2_gqu4d")
-animation = &"walk"
-frame = 7
-frame_progress = 0.635242
+animation = &"attack"
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(18, 85)
+position = Vector2(-4, 9)
+scale = Vector2(0.1, 0.1)
 shape = SubResource("CapsuleShape2D_48og4")
 
 [node name="ShootTimer" type="Timer" parent="."]
@@ -45,7 +46,8 @@ position = Vector2(221, 79)
 script = ExtResource("18_r3dvn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackeparent/nearAttack"]
-position = Vector2(-115, 1)
+position = Vector2(-217, -70)
+scale = Vector2(0.1, 0.1)
 shape = SubResource("CapsuleShape2D_nvvsh")
 
 [node name="Sprite2D" type="Sprite2D" parent="attackeparent/nearAttack"]
@@ -56,7 +58,8 @@ offset = Vector2(-150, 0)
 script = ExtResource("19_nvvsh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackeparent/nearAttackLv1"]
-position = Vector2(155, 81)
+position = Vector2(8, 9)
+scale = Vector2(0.1, 0.1)
 shape = SubResource("RectangleShape2D_nvvsh")
 
 [node name="Sprite2D" type="Sprite2D" parent="attackeparent/nearAttackLv1"]
@@ -68,7 +71,8 @@ offset = Vector2(10, 0)
 script = ExtResource("20_xjxgx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackeparent/nearAttackLv2"]
-position = Vector2(169.5, 87)
+position = Vector2(18, 9)
+scale = Vector2(0.1, 0.1)
 shape = SubResource("RectangleShape2D_xjxgx")
 
 [node name="Sprite2D" type="Sprite2D" parent="attackeparent/nearAttackLv2"]
@@ -77,6 +81,9 @@ centered = false
 offset = Vector2(10, 0)
 
 [node name="DashTimer" type="Timer" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(5, 5)
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

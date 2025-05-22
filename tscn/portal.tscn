@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://b4yeuvg0prnqe" path="res://sprites/portal_green/portal_green007.png" id="9_y5mxe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujlpe"]
-size = Vector2(107, 102)
+size = Vector2(92.5, 83)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kni7o"]
 animations = [{
@@ -58,18 +58,20 @@ animations = [{
 script = ExtResource("1_ujlpe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(51.5, 52)
+position = Vector2(54.5, 46)
+scale = Vector2(0.1, 0.3)
 shape = SubResource("RectangleShape2D_ujlpe")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 13.0
-offset_top = 108.0
-offset_right = 103.0
-offset_bottom = 131.0
+offset_left = 40.0
+offset_top = 65.0
+offset_right = 130.0
+offset_bottom = 88.0
+scale = Vector2(0.5, 0.5)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(55, 43)
-scale = Vector2(2.59375, 2.29688)
+position = Vector2(55, 43.324)
+scale = Vector2(0.7, 0.627)
 sprite_frames = SubResource("SpriteFrames_kni7o")
 animation = &"unlocked"
 
