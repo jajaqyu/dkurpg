@@ -35,6 +35,13 @@ var dash_duration = 0.3  # 대시 지속 시간(초)
 @onready var dash_timer = $DashTimer
 var is_dash_attack = false
 
+var is_attacking = false
+
+const FRAMES_SW = preload("res://sprites/frames/sw_spriteframes.tres")
+const FRAMES_LAW = preload("res://sprites/frames/law_spriteframes.tres")
+const FRAMES_ARCH = preload("res://sprites/frames/arch_spriteframes.tres")
+const FRAMES_PHY = preload("res://sprites/frames/phy_spriteframes.tres")
+
 #idle 이랑 walk도 직업 따라 바뀌게 구현
 func _ready():
 
@@ -43,7 +50,7 @@ func _ready():
 	load_stats_from_db(char_name)
 	plus_item_stat(item_check())
 	curHP = health
-	speed = 3000+(HUD.MOV+HUD.MOVItem)*100
+	speed = 2000+(HUD.MOV+HUD.MOVItem)*100
 	HUD.skill_cooldown = 5 -0.1*(HUD.INT+HUD.INTItem)
 	$attackeparent/nearAttack.monitoring = false
 	animated_sprite.play("idle")
@@ -52,6 +59,16 @@ func _ready():
 	HUD.set_stats(curHP,[health,HUD.ATK,HUD.DEF,HUD.INT,HUD.MOV,HUD.itemCount])
 	HUD.set_progress();
 	dash_timer.connect("timeout", Callable(self, "_on_dash_timer_timeout"))
+	
+	match HUD.job:
+		"SW":
+			anim.frames = FRAMES_SW
+		"Law":
+			anim.frames = FRAMES_LAW
+		"건축":
+			anim.frames = FRAMES_ARCH
+		"체육학과":
+			anim.frames = FRAMES_PHY
 	
 	
 func load_stats_from_db(char_name):	
@@ -161,11 +178,15 @@ func _physics_process(delta):
 			animated_sprite.flip_h = true
 		elif input_vector.x > 0:
 			animated_sprite.flip_h = false
-		animated_sprite.play("walk")
-		if not animated_sprite.is_playing():
-			animated_sprite.playing = true
+		# ✅ 공격 중이 아닐 때만 walk 실행
+		if not is_attacking:
+			animated_sprite.play("walk")
+			if not animated_sprite.is_playing():
+				animated_sprite.playing = true
 	else:
-		animated_sprite.play("idle")
+		#✅ 공격 중이 아닐 때만 idle 실행
+		if not is_attacking:
+			animated_sprite.play("idle")
 	if is_dashing:
 		velocity = input_vector * speed * dash_speed_multiplier * delta
 	else:
@@ -359,3 +380,14 @@ func plus_item_stat(items):
 	HUD.DEFItem = plus_DEF
 	HUD.INTItem = plus_INT
 	HUD.MOVItem = plus_MOV
+
+func _input(event):
+	if event.is_action_pressed("attack") and not is_attacking:
+		is_attacking = true
+		anim.play("attack")
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if anim.animation == "attack":
+		anim.play("idle")
+		is_attacking = false
