@@ -10,15 +10,18 @@ var rare = 0
 var db
 var Item_info
 var Type
+
 func _ready():
 	xButton.pressed.connect(_on_close_requested)
 	getButton.pressed.connect(_on_get_button_pressed)
 	connect("close_requested", Callable(self, "_on_close_requested"))
 	show_div()
 
+
 func _on_close_requested():
 	queue_free()
-# 뽑으면 바로 db 저장 
+
+ 
 func _on_get_button_pressed():
 	db = SQLite.new()
 	db.path = HUD.db_path

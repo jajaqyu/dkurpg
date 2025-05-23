@@ -11,6 +11,7 @@ var time_left := total_time
 var isCheck =true
 var monsters_defeated = 0
 @onready var game_over_dialog = $GameoverDialog
+
 var tmp
 
 func _ready():
@@ -28,10 +29,13 @@ func _ready():
 	game_over_dialog.hide()
 	game_over_dialog.connect("confirmed", Callable(self, "_on_game_over_confirmed"))
 	
+
 func _on_monster_died():
 	monsters_defeated += 1
+
 func _on_player_died():
 	_on_time_up()
+
 
 func _process(delta):
 	if time_left > 0:
@@ -40,10 +44,12 @@ func _process(delta):
 		if time_left == 0:
 			_on_time_up()
 
+
 func update_time_label():
 	var min = int(time_left) / 60
 	var sec = int(time_left) % 60
 	time_label.text = "남은 시간: %02d:%02d" % [min, sec]
+
 
 func _on_time_up():
 	if isCheck:
@@ -55,9 +61,9 @@ func _on_time_up():
 		game_over_dialog.popup_centered()
 		isCheck = false
 
+
 func stat_update():
-	# 스탯 업데이트
-	
+	# 스탯 업데이트	
 	var db = SQLite.new()
 	db.path = HUD.db_path
 	db.open_db()
@@ -66,6 +72,7 @@ func stat_update():
 
 	db.query("UPDATE character SET INT = INT + %d, Progress = %d,HP =%d, ItemCount = %d WHERE character_name = '%s'" % [tmp, HUD.progress,HUD.progress/2,HUD.itemCount,HUD.char_name])
 	db.close_db()
+
 
 func _on_game_over_confirmed():
 	get_tree().paused = false

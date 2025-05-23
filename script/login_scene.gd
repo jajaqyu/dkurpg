@@ -6,16 +6,19 @@ var db
 @onready var password_input = $VBoxContainer/PasswordInput
 @onready var message_label = $MessageLabel
 signal login_success(username)
+
 func _ready():
 	init_db()
 	$VBoxContainer/HBoxContainer/LoginButton.pressed.connect(_on_login_pressed)
 	$VBoxContainer/HBoxContainer/RegisterButton.pressed.connect(_on_register_pressed)
+
 
 func init_db():
 	db = SQLite.new()
 	db.path = HUD.db_path
 	db.open_db()
 	db.query("CREATE TABLE IF NOT EXISTS UserInfo (ID VARCHAR(20) PRIMARY KEY, Password VARCHAR(20))")
+
 
 func _on_login_pressed():
 	var username = username_input.text.strip_edges()
@@ -33,6 +36,7 @@ func _on_login_pressed():
 		queue_free()
 	else:
 		message_label.text = "로그인 실패: 잘못된 정보입니다."
+
 
 func _on_register_pressed():
 	var username = username_input.text.strip_edges()

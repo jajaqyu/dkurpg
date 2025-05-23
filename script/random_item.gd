@@ -8,7 +8,6 @@ var minigameCount = 2
 var type : int
 var rare
 
-
 func _ready():
 	minigameButton.pressed.connect(_on_minigame_button_pressed)
 	randomButton.pressed.connect(_on_random_button_pressed)
@@ -57,8 +56,11 @@ func show_quiz():
 	add_child(quiz_scene)
 	quiz_scene.quiz_result.connect(_on_quiz_result)
 	
+	
 func _on_quiz_result(is_correct: bool):
 	plusProbability =is_correct
+
+
 func show_tiping():		
 	var typing_scene_packed = preload("res://tscn/typing_minigame.tscn")
 	var typing_scene = typing_scene_packed.instantiate()
@@ -67,9 +69,11 @@ func show_tiping():
 	# 씬 추가
 	add_child(typing_scene)
 
+
 func _on_typing_game_result(result: bool):
 	plusProbability =result
 	
+
 func weighted_random_number(is_special: bool) -> int:
 	var numbers = [1,2,3,4,5,6,7,8,9,10]
 	var weights = []

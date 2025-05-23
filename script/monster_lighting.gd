@@ -19,18 +19,15 @@ signal died
 enum State { IDLE, WALK, SKILL, DIE ,HIT}
 var current_state = State.IDLE
 
+
 func _ready():
-	print("Monster _ready() called!")
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:
 		player = players[0]
-		print("Player found at: ", player.global_position)
-	else:
-		print("Error: No player found in group 'player'!")
 	add_to_group("enemies")
 	change_state(State.IDLE)
 	show()
-	print("Monster initialized at: ", global_position)
+
 
 func _process(delta):
 	if not is_alive:
@@ -60,25 +57,27 @@ func _process(delta):
 		if attack_timer >= attack_cooldown:
 			can_attack = true
 	update_state()
+
+
 func take_damage(amount):
 	change_state(State.HIT)
 	if not is_alive:
 		return
 	health -= amount
-	print("Monster took damage: ", amount, ", Health: ", health)
 	if health <= 0:
 		die()
+
 
 func die():
 	change_state(State.DIE)
 	is_alive = false
 	health = 0
 	$CollisionShape2D.set_deferred("disabled", true)
-	print("Monster died at: ", global_position)
 	emit_signal("died")
 	_try_give_item_to_player()
 	await animated_sprite.animation_finished
 	hide()
+
 
 func respawn():
 	health = 3
@@ -89,11 +88,11 @@ func respawn():
 	$CollisionShape2D.set_deferred("disabled", false)
 	set_process(true)
 	set_physics_process(true)
-	attack_timer = 4.0             # ← 추가: 공격 타이머 초기화
-	print("Monster respawned at: ", global_position)
-	change_state(State.IDLE)  # ← 추가
-	animated_sprite.play("idle")  # ← 추가
+	attack_timer = 4.0            
+	change_state(State.IDLE)  
+	animated_sprite.play("idle")  
 	animated_sprite.show()
+
 
 func attack():
 	if player and is_alive:
@@ -112,7 +111,8 @@ func attack():
 		## 공격 유효성 재확인
 		#if is_instance_valid(player) && global_position.distance_to(player.global_position) <= 250:
 		_spawn_lightning(target_pos)
-		
+
+
 func _spawn_lightning(pos: Vector2):
 	if lightning_scene:
 		change_state(State.SKILL)
@@ -120,19 +120,22 @@ func _spawn_lightning(pos: Vector2):
 		var lightning = lightning_scene.instantiate()
 		get_parent().add_child(lightning)
 		lightning.global_position = pos
-		print("번개 생성 at: ", pos)
+
 
 func _on_area_entered(area):
 	print("Monster Hitbox detected area: ", area.name)
 	if area.is_in_group("fireball"):
 		take_damage(area.damage)
 		area.queue_free()
-		print("Monster hit by fireball!")
+
+
 func _try_give_item_to_player():
 	if player:  # player 변수에 플레이어 노드가 연결되어 있다고 가정
 		var rand = randf()
 		if rand < drop_chance:
 			player.add_item()
+
+
 func change_state(new_state):
 	if current_state == State.DIE: return
 	current_state = new_state
@@ -151,6 +154,8 @@ func change_state(new_state):
 			change_state(State.IDLE) 
 		State.DIE:
 			animated_sprite.play("die")
+
+
 func update_state():
 	if current_state in [State.DIE, State.SKILL, State.HIT]: return
 	

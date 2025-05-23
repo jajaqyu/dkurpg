@@ -24,6 +24,7 @@ func _ready():
 		buttons[i].pressed.connect(_on_answer_pressed.bind(i))
 	load_question()
 
+
 # DB에서 랜덤 문제 1개 가져오기
 func get_random_question() -> Dictionary:
 	var query = "SELECT question, choice1, choice2, choice3, choice4, answer_index FROM quiz_questions ORDER BY RANDOM() LIMIT 1"
@@ -37,6 +38,7 @@ func get_random_question() -> Dictionary:
 			"answer": int(row["answer_index"])
 		}
 	return {}
+
 
 # 문제 로드 및 UI 반영
 func load_question():
@@ -53,6 +55,7 @@ func load_question():
 		buttons[i].disabled = false
 		buttons[i].modulate = Color(1, 1, 1)
 	result_label.text = ""
+
 
 # 버튼 클릭 처리
 func _on_answer_pressed(selected_index: int):

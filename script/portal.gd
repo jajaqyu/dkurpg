@@ -1,51 +1,3 @@
-#extends Area2D
-#
-#@export var target_scene_path: String = ""  # 이동할 씬 경로
-#@export var portal_name: String = "Stage"   # 포탈 이름
-#
-#var player_in_area = false
-#var player_body = null
-#var asking = false
-#var checkItem = false
-#@onready var label = $Label
-#
-#func _ready():
-	#label.text = portal_name
-	#connect("body_entered", Callable(self, "_on_body_entered"))
-	#connect("body_exited", Callable(self, "_on_body_exited"))
-#
-#func _on_body_entered(body):
-	#if body.is_in_group("player"):
-		#player_in_area = true
-		#player_body = body
-		#label.text = "%s\n[↑] 입장" % portal_name  # 안내문 추가
-#
-#func _on_body_exited(body):
-	#if body == player_body:
-		#player_in_area = false
-		#player_body = null
-		#label.text = portal_name  # 안내문 제거
-		#asking = false
-#
-#func _process(delta):
-	#if player_in_area and not asking:
-		#if Input.is_action_just_pressed("ui_up"):
-			#asking = true
-			#label.text = "%s\n입장할까요? (Y/N)" % portal_name
-	#elif asking:
-		#if Input.is_action_just_pressed("y"):
-			#print(11)
-			#if target_scene_path != "" and !checkItem:
-				#get_tree().change_scene_to_file(target_scene_path)
-			#elif target_scene_path != "" and checkItem:
-				#var ItemScene = load(target_scene_path)
-				#var sc = ItemScene.instantiate()
-				#add_child(sc)
-			#
-#
-		#elif Input.is_action_just_pressed("n"):
-			#asking = false
-			#label.text = "%s\n[↑] 입장" % portal_name
 extends Area2D
 
 @export var target_scene_path: String = ""
@@ -55,9 +7,11 @@ var player_in_area = false
 var player_body = null
 var asking = false
 var checkItem = false
+
 @onready var label = $Label
 @onready var confirm_dialog = $ConfirmDialog
 @onready var animated_sprite = $AnimatedSprite2D
+
 var is_locked = false
 
 func _ready():
@@ -78,6 +32,7 @@ func _on_body_entered(body):
 		player_body = body
 		label.text = "%s\n[↑] 입장" % portal_name
 
+
 func _on_body_exited(body):
 	if body == player_body:
 		player_in_area = false
@@ -85,6 +40,7 @@ func _on_body_exited(body):
 		label.text = portal_name
 		asking = false
 		confirm_dialog.hide()
+
 
 func _process(delta):
 	if player_in_area and not asking:
@@ -97,6 +53,7 @@ func _process(delta):
 		pass
 	set_locked(is_locked)
 
+
 func _on_confirmed():
 	asking = false
 	if target_scene_path != "" and !checkItem:
@@ -106,9 +63,11 @@ func _on_confirmed():
 		var sc = ItemScene.instantiate()
 		add_child(sc)
 
+
 func _on_canceled():
 	asking = false
 	label.text = "%s\n[↑] 입장" % portal_name
+
 
 func set_locked(state: bool):
 	is_locked = state

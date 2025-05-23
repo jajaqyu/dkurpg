@@ -2,10 +2,12 @@ extends CharacterBody2D
 @onready var hitbox = $attackeparent
 @onready var animated_sprite = $AnimatedSprite2D
 var speed = 20000.0
+
 const Fireball = preload("res://tscn//fireball.tscn")
 var attack_texture = preload("res://sprites/attack.png")
 var attack_texture_lv1 = preload("res://sprites/attack_skill_lv1.png")
 var attack_texture_lv2 = preload("res://sprites/attack_skill_lv2.png")
+
 var input_vector = Vector2.ZERO
 var can_skill = true
 @onready var shoot_timer = $ShootTimer
@@ -27,14 +29,12 @@ var is_reinforce_lv2 =false
 var is_barriear = false
 var is_heal = false
 
-
 #dash skill
 var is_dashing = false
 var dash_speed_multiplier = 3.0  # 대시 시 속도 배수
 var dash_duration = 0.3  # 대시 지속 시간(초)
 @onready var dash_timer = $DashTimer
 var is_dash_attack = false
-
 var is_attacking = false
 
 const FRAMES_SW = preload("res://sprites/frames/sw_spriteframes.tres")
@@ -44,8 +44,6 @@ const FRAMES_PHY = preload("res://sprites/frames/phy_spriteframes.tres")
 
 #idle 이랑 walk도 직업 따라 바뀌게 구현
 func _ready():
-
-	
 	char_name = HUD.char_name
 	load_stats_from_db(char_name)
 	plus_item_stat(item_check())
@@ -55,7 +53,6 @@ func _ready():
 	$attackeparent/nearAttack.monitoring = false
 	animated_sprite.play("idle")
 	add_to_group("player")  # 플레이어를 그룹에 추가
-	print("Player _ready() called, Animation: idle")
 	HUD.set_stats(curHP,[health,HUD.ATK,HUD.DEF,HUD.INT,HUD.MOV,HUD.itemCount])
 	HUD.set_progress();
 	dash_timer.connect("timeout", Callable(self, "_on_dash_timer_timeout"))
@@ -69,14 +66,15 @@ func _ready():
 			anim.frames = FRAMES_ARCH
 		"체육학과":
 			anim.frames = FRAMES_PHY
-	
-	
+
+
 func load_stats_from_db(char_name):	
 	var db = SQLite.new()
 	db.path = HUD.db_path
 	db.open_db()
 	var table = []
 	db.query("SELECT HP,ATK,DEF,INT,MOV,itemCount,Progress,Job FROM character WHERE character_name = '%s' LIMIT 1;"%char_name)
+
 	if db.query_result.size() > 0:
 		var row = db.query_result[0]
 		health = row["HP"]
@@ -87,15 +85,16 @@ func load_stats_from_db(char_name):
 		HUD.itemCount = row["itemCount"]
 		HUD.progress = row["Progress"]
 		HUD.job = row["job"]
-		
+
+
 func _process(delta):
 	if HUD.skill_timer== 0 :
 		can_skill = true
+		
 	if Input.is_action_just_pressed("skill"):
 		if HUD.job == "SW" and can_skill:
 			if HUD.INT >= 20:
 				if HUD.INT >=40:
-					print(444)
 					is_reinforce_lv2 = true
 					await near_attack(input_vector) 
 					is_reinforce_lv2 = false
@@ -107,7 +106,7 @@ func _process(delta):
 					is_reinforce = false
 					HUD.use_skill()
 					can_skill = false
-					
+		
 		elif HUD.job == "Law" and can_skill:
 			if HUD.ATK >= 20 :
 				if HUD.ATK >=40:
@@ -120,6 +119,7 @@ func _process(delta):
 					shoot()
 					HUD.use_skill()
 					can_skill = false
+	
 		elif  HUD.job == "건축" and can_skill:
 			if HUD.DEF >= 20:
 				if HUD.DEF >=40:
@@ -131,6 +131,7 @@ func _process(delta):
 					is_barriear = true
 					HUD.use_skill()
 					can_skill = false	
+		
 		elif HUD.job == "체육학과" and can_skill:
 			if HUD.MOV >= 20:
 				start_dash()
@@ -140,11 +141,9 @@ func _process(delta):
 					is_dash_attack = true
 					#외형변경 코드
 					
-					
-					
-		
 	if Input.is_action_just_pressed("attack"):
 		near_attack(input_vector)
+
 
 func shoot():
 	var input_vector = Vector2(
@@ -164,11 +163,12 @@ func shoot():
 	
 	get_parent().add_child(fireball)
 
+
 func _on_shoot_timer_timeout():
 	can_skill = true
 
-func _physics_process(delta):
-	
+
+func _physics_process(delta):	
 	input_vector.x = Input.get_axis("ui_left", "ui_right")
 	input_vector.y = Input.get_axis("ui_up", "ui_down")
 	
@@ -193,6 +193,7 @@ func _physics_process(delta):
 		velocity = input_vector * speed * delta
 	move_and_slide()
 
+
 func near_attack(direction: Vector2):
 	var damage = (HUD.ATK+HUD.ATKItem) + (HUD.MOV + HUD.MOVItem) * 0.25
 	if is_dash_attack:
@@ -203,17 +204,15 @@ func near_attack(direction: Vector2):
 		$attackeparent/nearAttackLv1/Sprite2D.texture = attack_texture_lv1	
 		$attackeparent/nearAttackLv1.damage = damage*1.5
 		$attackeparent/nearAttackLv1.activate()
-		print(1)
 	elif is_reinforce_lv2:
 		$attackeparent/nearAttackLv2/Sprite2D.texture = attack_texture_lv2
 		$attackeparent/nearAttackLv2.damage = damage*2
 		$attackeparent/nearAttackLv2.activate()		
-		print(2)
 	else:
 		$attackeparent/nearAttack/Sprite2D.texture = attack_texture	
 		$attackeparent/nearAttack.damage = damage
 		$attackeparent/nearAttack.activate()
-		print(3)
+
 	var offset = 32
 	var angle = direction.angle()
 
@@ -271,6 +270,7 @@ func near_attack(direction: Vector2):
 	hitbox.position = Vector2(offset, 0)
 	hitbox.rotation = 0
 
+
 func take_damage(amount):
 	if is_barriear:
 		print("막힘")
@@ -282,27 +282,30 @@ func take_damage(amount):
 			curHP -= amount
 		else:
 			amount = 0
-	print("Player took damage: ", amount, ", Health: ", health)
 	HUD.set_hp(curHP,health)
 	if curHP <= 0:
 		die()
 
+
 func die():
-	print("Game Over")
 	#save_stats_to_db()
 	emit_signal("player_died")
 	queue_free()  # 플레이어 제거 (필요에 따라 게임 오버 화면 추가)
+
 	
 func add_item():
 	HUD.itemCount+=1
 	HUD.set_itemCount()
 
+
 func start_dash():
 	is_dashing = true
 	dash_timer.start(dash_duration)
 	
+
 func _on_dash_timer_timeout():
 	is_dashing = false
+
 
 func item_check(): #이미지는 직업 캐릭터 사진과 스킬 모습
 	var db = SQLite.new()
@@ -335,7 +338,8 @@ func item_check(): #이미지는 직업 캐릭터 사진과 스킬 모습
 			items[3] = null
 	db.close_db()
 	return items
-	
+
+
 func plus_item_stat(items):
 	var db = SQLite.new()
 	db.path = HUD.db_path
@@ -368,6 +372,7 @@ func plus_item_stat(items):
 		plus_DEF += int(row["plus_DEF"])
 		plus_INT += int(row["plus_INT"])
 		plus_MOV += int(row["plus_MOV"])
+
 	db.query("SELECT plus_ATK, plus_DEF,plus_INT,plus_MOV FROM Item WHERE Item_name = '%s'" %items[3])
 	if db.query_result.size() > 0:
 		var row = db.query_result[0]
@@ -380,6 +385,7 @@ func plus_item_stat(items):
 	HUD.DEFItem = plus_DEF
 	HUD.INTItem = plus_INT
 	HUD.MOVItem = plus_MOV
+
 
 func _input(event):
 	if event.is_action_pressed("attack") and not is_attacking:

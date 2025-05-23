@@ -1,13 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwdrkou38o0a7"]
+[gd_scene load_steps=7 format=3 uid="uid://cwdrkou38o0a7"]
 
 [ext_resource type="Script" uid="uid://co0x1bwpm4u3p" path="res://script/Main.gd" id="1_ewaw7"]
 [ext_resource type="PackedScene" uid="uid://d32i7ivu474tf" path="res://tscn/Player.tscn" id="2_8wxc5"]
+[ext_resource type="PackedScene" uid="uid://bh7qegx5m24wy" path="res://tscn/hud.tscn" id="2_ggqsd"]
 [ext_resource type="PackedScene" uid="uid://cesadrt2lyci8" path="res://tscn/portal.tscn" id="3_a7rub"]
 [ext_resource type="Theme" uid="uid://krja1pyq4q23" path="res://tscn/rad.theme" id="4_a7rub"]
 [ext_resource type="PackedScene" uid="uid://bv4rvjc340fex" path="res://tscn/World_Scene.tscn" id="4_jboqg"]
 
 [node name="Main1" type="Node"]
 script = ExtResource("1_ewaw7")
+hud_scene = ExtResource("2_ggqsd")
 player_scene = ExtResource("2_8wxc5")
 portal_scene = ExtResource("3_a7rub")
 map_scene = ExtResource("4_jboqg")

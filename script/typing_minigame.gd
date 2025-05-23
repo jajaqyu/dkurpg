@@ -19,12 +19,11 @@ var char_name
 # 현재 문장
 var current_sentence: String = ""
 signal game_result(result: bool)
+
 func _ready():
 	# SQLite 데이터베이스 설정
-	
 	sqlite.path = HUD.db_path
 	var success = sqlite.open_db()
-	print("SQLite open success: ", success)
 	if not success:
 		print("SQLite error: ")
 	
@@ -38,24 +37,15 @@ func _ready():
 	load_random_sentence()
 	timer_active = true
 
+
 func create_sentences_table():
 # 테이블 없으면 생성
 	var create_success = sqlite.query("CREATE TABLE IF NOT EXISTS sentences (id INTEGER PRIMARY KEY AUTOINCREMENT, text TEXT NOT NULL);")
-	print("Create table success: ", create_success)
 	
-# 문장 개수 확인
-	#var count_success = sqlite.query("SELECT COUNT(*) AS count FROM sentences;")
-	#print("Count query success: ", count_success)
-	#sqlite.query_result()
-	#var count = result[0]["count"] if result.size() > 0 else 0
-
   # 문장 개수 확인 (query와 query_result 속성 사용)
 	var query_success = sqlite.query("SELECT COUNT(*) AS count FROM sentences;")
-	print("Query success: ", query_success)
 	var result = sqlite.query_result
-	print("Query result: ", result)
 	var count = result[0]["count"] if result.size() > 0 else 0
-	print("Sentence count: ", count)
 
 # 하나도 없으면 예시 문장 생성
 	if count == 0:
@@ -68,7 +58,7 @@ func create_sentences_table():
 			]
 		for sentence in sample_sentences:
 			var insert_success = sqlite.query("INSERT INTO sentences (text) VALUES ('%s');" % sentence)
-			print("Insert sentence success: ", insert_success)
+
 
 func setup_ui():
 	var viewport_size = get_viewport_rect().size
@@ -114,25 +104,17 @@ func setup_ui():
 	instruction_label.custom_minimum_size = Vector2(400, 40)
 	instruction_label.position = Vector2((viewport_size.x - instruction_label.custom_minimum_size.x) / 2, 200) # 재시작 버튼 위치
 	add_child(instruction_label)
-	# 재시작 버튼
-	#restart_button = Button.new()
-	#restart_button.position = Vector2(450, 500)
-	#restart_button.size = Vector2(200, 50)
-	#restart_button.text = "Restart"
-	#restart_button.add_theme_stylebox_override("normal", create_stylebox("res://button_normal.png"))
-	#restart_button.add_theme_stylebox_override("pressed", create_stylebox("res://button_pressed.png"))
-	#restart_button.pressed.connect(_on_restart_pressed)
-	#add_child(restart_button)
+
 	
 func create_stylebox(texture_path: String) -> StyleBoxTexture:
 	var stylebox = StyleBoxTexture.new()
 	stylebox.texture = load(texture_path)
 	return stylebox
 
+
 func load_random_sentence():
 # 랜덤 문장 선택
 	var query_success = sqlite.query("SELECT text FROM sentences ORDER BY RANDOM() LIMIT 1;")
-	print("Random sentence query success: ", query_success)
 	var result = sqlite.query_result
 	if result.size() > 0:
 		current_sentence = result[0]["text"]
@@ -140,6 +122,7 @@ func load_random_sentence():
 	else:
 		sentence_label.text = "No sentences available!"
 		current_sentence = ""
+
 
 func _on_input_submitted(text: String):
 	if not timer_active:
@@ -160,6 +143,7 @@ func _on_input_submitted(text: String):
 	# 경고창 표시
 	show_result_dialog(is_correct)
 
+
 func _on_restart_pressed():
 # 게임 초기화
 	time_left = 30.0
@@ -169,6 +153,7 @@ func _on_restart_pressed():
 	timer_label.text = "Time: 30.0"
 	input_field.text = ""
 	load_random_sentence()
+
 
 func _process(delta):
 	if timer_active:
@@ -183,9 +168,12 @@ func _process(delta):
 		# 시간 초과 시 경고창 표시 (실패로 처리)
 		show_result_dialog(false)
 
+
 func _exit_tree():
 # 데이터베이스 닫기
 	sqlite.close_db()
+
+
 func show_result_dialog(is_correct: bool):
 # AcceptDialog 생성
 	dialog = AcceptDialog.new()
@@ -208,7 +196,6 @@ func show_result_dialog(is_correct: bool):
 func _on_dialog_confirmed(is_correct: bool):
 # 결과 시그널 발생
 	emit_signal("game_result", is_correct)
-	print("Game result emitted: ", is_correct)
 
 	# 다이얼로그 제거
 	if dialog != null:
@@ -217,29 +204,3 @@ func _on_dialog_confirmed(is_correct: bool):
 
 	# 씬 종료 (부모 씬에서 처리하도록 함)
 	queue_free()
-
-#메인 씬에서 연결하는 방법
-#extends Node
-#
-#var typing_scene: Node
-#
-#func _ready():
-	## 타이핑 게임 씬 로드
-	#var typing_scene_packed = load("res://typing_minigame.tscn")
-	#typing_scene = typing_scene_packed.instantiate()
-#
-	## 결과 시그널 연결
-	#typing_scene.game_result.connect(_on_typing_game_result)
-#
-	## 씬 추가
-	#add_child(typing_scene)
-#
-#func _on_typing_game_result(result: bool):
-	#print("Typing game result: ", result)
-	## 결과에 따라 추가 처리
-	#if result:
-		#print("Player succeeded!")
-	#else:
-		#print("Player failed!")
-	# 필요 시 다른 씬으로 전환
-	# get_tree().change_scene_to_file("res://next_scene.tscn")
