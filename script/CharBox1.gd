@@ -5,6 +5,8 @@ var main_scene = preload("res://tscn/main1.tscn")
 @onready var discardButton =$DiscardButton
 var new_scene =null
 var main = null
+@onready var job_appearance = $JobApperance
+var job_name: String = ""
 
 func show_character(char_info):
 	$NameLabel.text = char_info["character_name"]
@@ -21,7 +23,24 @@ func show_character(char_info):
 	$PlusButton.hide()
 	# 캐릭터 선택 버튼 활성화 
 	$SelectButton.pressed.connect(func(): _on_select_button_pressed($NameLabel.text))
+	
+	job_name = char_info["job"]
 
+	var path = ""
+
+	if job_name == "SW":
+		path = "res://sprites/character/sw/idle/0.png"
+	elif job_name == "Law":
+		path = "res://sprites/character/law/idle/0.png"
+	elif job_name == "건축":
+		path = "res://sprites/character/architecture/idle/0.png"
+	elif job_name == "체육학과":
+		path = "res://sprites/character/phy/idle/0.png"
+	else:
+		path = "res://sprites/character/default.png"
+
+	var texture = load(path)
+	job_appearance.texture = texture
 
 func show_plus_button(ID):
 	$NameLabel.text = ""

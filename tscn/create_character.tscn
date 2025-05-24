@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhjfai5y4qj6e"]
+[gd_scene load_steps=9 format=3 uid="uid://bhjfai5y4qj6e"]
 
 [ext_resource type="Script" uid="uid://dbfusl3w61gl5" path="res://script/create_character.gd" id="1_tceku"]
 [ext_resource type="Texture2D" uid="uid://cdu1ad47frbxt" path="res://sprites/login_background.jpg" id="2_b85vr"]
+[ext_resource type="Texture2D" uid="uid://dxx1pqegs4v2h" path="res://sprites/character/sw/idle/0.png" id="3_lfuys"]
+[ext_resource type="Texture2D" uid="uid://bj0critpd0ddv" path="res://sprites/character/phy/idle/0.png" id="4_uio4b"]
+[ext_resource type="Texture2D" uid="uid://cb7xhvm2mtx5x" path="res://sprites/character/law/idle/0.png" id="5_qrxpo"]
+[ext_resource type="Texture2D" uid="uid://hvqtfy6pad0k" path="res://sprites/character/architecture/idle/0.png" id="6_rw2xu"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dr6io"]
 texture = ExtResource("2_b85vr")
@@ -75,3 +79,23 @@ offset_right = 1126.0
 offset_bottom = 341.0
 text = "생성
 "
+
+[node name="0" type="Sprite2D" parent="."]
+position = Vector2(87, 151)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_lfuys")
+
+[node name="1" type="Sprite2D" parent="."]
+position = Vector2(597, 490)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_uio4b")
+
+[node name="2" type="Sprite2D" parent="."]
+position = Vector2(599, 147)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_qrxpo")
+
+[node name="3" type="Sprite2D" parent="."]
+position = Vector2(87, 490)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_rw2xu")

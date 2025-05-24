@@ -36,6 +36,8 @@ var dash_duration = 0.3  # 대시 지속 시간(초)
 @onready var dash_timer = $DashTimer
 var is_dash_attack = false
 var is_attacking = false
+var is_hit = false
+var is_dying = false
 
 const FRAMES_SW = preload("res://sprites/frames/sw_spriteframes.tres")
 const FRAMES_LAW = preload("res://sprites/frames/law_spriteframes.tres")
@@ -179,13 +181,13 @@ func _physics_process(delta):
 		elif input_vector.x > 0:
 			animated_sprite.flip_h = false
 		# ✅ 공격 중이 아닐 때만 walk 실행
-		if not is_attacking:
+		if not is_attacking and not is_hit:
 			animated_sprite.play("walk")
 			if not animated_sprite.is_playing():
 				animated_sprite.playing = true
 	else:
 		#✅ 공격 중이 아닐 때만 idle 실행
-		if not is_attacking:
+		if not is_attacking and not is_hit:
 			animated_sprite.play("idle")
 	if is_dashing:
 		velocity = input_vector * speed * dash_speed_multiplier * delta
@@ -285,12 +287,15 @@ func take_damage(amount):
 	HUD.set_hp(curHP,health)
 	if curHP <= 0:
 		die()
+	else:
+		is_hit = true
+		anim.play("hit")
 
 
 func die():
 	#save_stats_to_db()
 	emit_signal("player_died")
-	queue_free()  # 플레이어 제거 (필요에 따라 게임 오버 화면 추가)
+	anim.play("die")
 
 	
 func add_item():
@@ -397,3 +402,6 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	if anim.animation == "attack":
 		anim.play("idle")
 		is_attacking = false
+	elif anim.animation == "hit":
+		anim.play("idle")
+		is_hit = false
