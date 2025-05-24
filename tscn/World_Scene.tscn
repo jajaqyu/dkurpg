@@ -3,6 +3,7 @@
 [ext_resource type="TileSet" uid="uid://dgyi5ek3wvx0j" path="res://sprites/mainMap/tileset.tres" id="1_swnxe"]
 
 [node name="Node2D" type="Node2D"]
+position = Vector2(0, -1)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(0, 96)

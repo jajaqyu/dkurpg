@@ -38,6 +38,8 @@ func playInit():
 	var player = player_scene.instantiate()
 	player.global_position = spawn_point
 	current_map.add_child(player)
+	$CanvasLayer/Minimap.player_node = player
+	$CanvasLayer/Minimap.show()
 	
 	var portal1 = portal_scene.instantiate()
 	current_map.add_child(portal1)

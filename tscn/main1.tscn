@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3wxdwr43r3gv"]
+[gd_scene load_steps=9 format=3 uid="uid://b3wxdwr43r3gv"]
 
 [ext_resource type="PackedScene" uid="uid://bh7qegx5m24wy" path="res://tscn/hud.tscn" id="1_o8uje"]
 [ext_resource type="PackedScene" uid="uid://d32i7ivu474tf" path="res://tscn/Player.tscn" id="1_x3a11"]
 [ext_resource type="PackedScene" uid="uid://cesadrt2lyci8" path="res://tscn/portal.tscn" id="2_3gfwe"]
 [ext_resource type="PackedScene" uid="uid://bv4rvjc340fex" path="res://tscn/World_Scene.tscn" id="3_3gfwe"]
 [ext_resource type="Theme" uid="uid://krja1pyq4q23" path="res://tscn/rad.theme" id="3_o8uje"]
+[ext_resource type="Script" uid="uid://dyql3lapfgl4e" path="res://script/minimap.gd" id="6_hii0r"]
+[ext_resource type="Texture2D" uid="uid://dld0dony3lxod" path="res://sprites/mapsample (2).png" id="7_hii0r"]
 
 [sub_resource type="GDScript" id="GDScript_8wxc5"]
 script/source = "extends Node
@@ -47,6 +49,7 @@ func playInit():
 	var player = player_scene.instantiate()
 	player.global_position = spawn_point
 	current_map.add_child(player)
+	$CanvasLayer/Minimap.player_node = player
 	
 	var portal1 = portal_scene.instantiate()
 	current_map.add_child(portal1)
@@ -232,3 +235,89 @@ offset_right = 49.0
 offset_bottom = 44.0
 text = "J
 아이템"
+
+[node name="Minimap" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_hii0r")
+
+[node name="SubViewport" type="SubViewportContainer" parent="CanvasLayer/Minimap"]
+layout_mode = 0
+offset_left = 930.0
+offset_right = 1150.0
+offset_bottom = 150.0
+stretch = true
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Minimap/SubViewport"]
+custom_minimum_size = Vector2(220, 150)
+layout_mode = 2
+texture = ExtResource("7_hii0r")
+expand_mode = 1
+
+[node name="PortalMarker" type="Marker2D" parent="CanvasLayer/Minimap/SubViewport"]
+position = Vector2(-875, 66)
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Minimap/SubViewport/PortalMarker"]
+offset_left = 939.0
+offset_top = 48.0
+offset_right = 954.0
+offset_bottom = 55.0
+color = Color(0.0980392, 1, 1, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="CanvasLayer/Minimap/SubViewport/PortalMarker"]
+offset_left = 1000.0
+offset_top = 71.0
+offset_right = 1015.0
+offset_bottom = 78.0
+color = Color(0.0980392, 1, 1, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="CanvasLayer/Minimap/SubViewport/PortalMarker"]
+offset_left = 1000.0
+offset_top = 6.0
+offset_right = 1015.0
+offset_bottom = 13.0
+color = Color(0.0980392, 1, 1, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="CanvasLayer/Minimap/SubViewport/PortalMarker"]
+offset_left = 999.0
+offset_top = -41.0
+offset_right = 1014.0
+offset_bottom = -34.0
+color = Color(0.0980392, 1, 1, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer/Minimap/SubViewport/PortalMarker"]
+offset_left = 1056.0
+offset_top = 29.0
+offset_right = 1071.0
+offset_bottom = 36.0
+color = Color(0.0980392, 1, 1, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/Minimap/SubViewport/PortalMarker"]
+offset_left = 941.0
+offset_top = -43.0
+offset_right = 956.0
+offset_bottom = -36.0
+color = Color(0.0980392, 1, 1, 1)
+
+[node name="PlayerMarker" type="ColorRect" parent="CanvasLayer/Minimap/SubViewport/PortalMarker"]
+anchors_preset = -1
+anchor_left = -0.586
+anchor_top = 0.613
+anchor_right = -0.586
+anchor_bottom = 0.613
+offset_left = 972.0
+offset_top = 52.0
+offset_right = 977.0
+offset_bottom = 67.0
+color = Color(0.968627, 0.309804, 0.0313726, 1)
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/Minimap/SubViewport"]
+handle_input_locally = false
+size = Vector2i(220, 150)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer/Minimap/SubViewport/SubViewport"]
+offset = Vector2(-150, 240)
+zoom = Vector2(0.3, 0.3)
