@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://oxsbuejxhvns"]
+[gd_scene load_steps=5 format=3 uid="uid://oxsbuejxhvns"]
 
 [ext_resource type="Script" uid="uid://f5fpowfpod71" path="res://script/stage_aura.gd" id="1_vpn74"]
 [ext_resource type="PackedScene" uid="uid://d32i7ivu474tf" path="res://tscn/Player.tscn" id="2_3w2rf"]
 [ext_resource type="PackedScene" uid="uid://d3frvtu50nn8" path="res://tscn/monster_area.tscn" id="3_ybacc"]
+[ext_resource type="Texture2D" uid="uid://dop341cojjcwl" path="res://sprites/background/건축학과.jpg" id="4_ybacc"]
 
 [node name="stage_aura" type="Node2D"]
 script = ExtResource("1_vpn74")
@@ -11,11 +12,28 @@ monster_scene = ExtResource("3_ybacc")
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="TimeLabel" type="Label" parent="."]
+[node name="GameoverDialog" type="AcceptDialog" parent="."]
+process_mode = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1, -1)
+scale = Vector2(0.749349, 0.630859)
+texture = ExtResource("4_ybacc")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(577, 313)
+build_mode = 1
+polygon = PackedVector2Array(-571, -176, 404, -173, 404, -130, 556, -129, 556, 167, 50, 166, 52, 296, 573, 298, 574, 329, -574, 330, -572, 284, -145, 293, -146, 163, -575, 164)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer"]
+z_index = 1
 offset_left = 509.0
 offset_top = 9.0
 offset_right = 547.0
 offset_bottom = 32.0
-
-[node name="GameoverDialog" type="AcceptDialog" parent="."]
-process_mode = 3

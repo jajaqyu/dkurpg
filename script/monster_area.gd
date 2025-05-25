@@ -44,21 +44,10 @@ func _process(delta):
 
 	var distance = global_position.distance_to(player.global_position)
 
-	if distance <= 1000:
-		var direction = (player.global_position - global_position).normalized()
-		velocity = direction * speed
-		move_and_slide()
-	else:
-		velocity = Vector2.ZERO
-
-	if distance <= 200 and can_attack and is_alive:
-		attack()
-		can_attack = false
-		attack_timer = 0.0
-	elif not can_attack:
-		attack_timer += delta
-		if attack_timer >= attack_cooldown:
-			can_attack = true
+	var direction = (player.global_position - global_position).normalized()
+	velocity = direction * speed
+	move_and_slide()
+	
 	
 	area_timer += delta
 	if area_active:
@@ -91,7 +80,7 @@ func _spawn_area():
 		var area = area_scene.instantiate()
 		add_child(area)
 		area.name = "AttackArea"
-		area.position = Vector2(250, 275) # aura 위치 조절, 크기 조절은 아우라의 콜리전 영역 조절
+		area.position = Vector2(0, 0) # aura 위치 조절, 크기 조절은 아우라의 콜리전 영역 조절
 		# area.get_node("area").scale = Vector2(2, 2) # 필요시 이미지 크기 조정
 		change_state(State.SKILL)
 		await animated_sprite.animation_finished
@@ -114,11 +103,11 @@ func die():
 	hide()
 
 
-func respawn():
+func respawn():		
 	health = 3
 	is_alive = true
 	respawn_timer = 0.0
-	global_position = Vector2(100, 0)
+	global_position = Vector2(500, 200)
 	show()
 	$CollisionShape2D.set_deferred("disabled", false)
 	set_process(true)
@@ -170,7 +159,7 @@ func change_state(new_state):
 func update_state():
 	if current_state in [State.DIE, State.SKILL, State.HIT]: return
 	
-	if velocity.length() > 10:  # 이동 감지 임계값
+	if velocity.length() > 3:  # 이동 감지 임계값
 		change_state(State.IDLE)
 	else:
 		change_state(State.IDLE)

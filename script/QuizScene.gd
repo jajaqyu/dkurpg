@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Panel
 
 # SQLite 노드 참조
 @onready var db 

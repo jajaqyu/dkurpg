@@ -7,6 +7,7 @@ var plusProbability = false
 var minigameCount = 2
 var type : int
 var rare
+var saved_size : Vector2
 
 func _ready():
 	minigameButton.pressed.connect(_on_minigame_button_pressed)
@@ -62,6 +63,9 @@ func _on_quiz_result(is_correct: bool):
 
 
 func show_tiping():		
+	saved_size = self.size
+	self.position = Vector2(0,0)
+	self.size = Vector2(1200,800)
 	var typing_scene_packed = preload("res://tscn/typing_minigame.tscn")
 	var typing_scene = typing_scene_packed.instantiate()
 	# 결과 시그널 연결
@@ -71,6 +75,8 @@ func show_tiping():
 
 
 func _on_typing_game_result(result: bool):
+	self.size = saved_size
+	self.position = Vector2(300,36)
 	plusProbability =result
 	
 

@@ -7,7 +7,7 @@ extends Node2D
 var total_time := 180.0 # 3분(180초)
 var time_left := total_time
 @onready var timer := $Timer
-@onready var time_label := $TimeLabel
+@onready var time_label := $CanvasLayer/TimeLabel
 var isCheck =true
 var monsters_defeated = 0
 @onready var game_over_dialog = $GameoverDialog
@@ -18,7 +18,10 @@ func _ready():
 	var player = player_scene.instantiate()
 	player.char_name = char_name
 	add_child(player)
-	player.global_position = Vector2(200, 200)  # 원하는 위치
+	player.scale = Vector2(2,2)
+	var camera = player.get_node("Camera2D")
+	camera.zoom = Vector2(2,2)
+	player.global_position = Vector2(600, 600)  # 원하는 위치
 	player.connect("player_died", Callable(self, "_on_player_died"))
 	
 	# 몬스터 여러 개 생성

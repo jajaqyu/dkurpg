@@ -37,12 +37,9 @@ func _process(delta):
 	var distance = global_position.distance_to(player.global_position)
 	if is_alive && current_state != State.SKILL: 
 # 플레이어 추적 이동 (선택사항)
-		if distance <= 1000: # 공격 중 이동 금지
-			var direction = (player.global_position - global_position).normalized()
-			velocity = direction * speed
-			move_and_slide()
-		else:
-			velocity = Vector2.ZERO	
+		var direction = (player.global_position - global_position).normalized()
+		velocity = direction * speed
+		move_and_slide()
 	update_state()
 	
 	# 공격 쿨타임 관리 및 공격
@@ -59,7 +56,7 @@ func fire_projectile():
 	if projectile_scene and player:
 		var projectile = projectile_scene.instantiate()
 		get_parent().add_child(projectile)
-		projectile.global_position = global_position + Vector2(200,100)
+		projectile.global_position = global_position + Vector2(0,0)
 		# 방향 계산
 		var direction = (player.global_position - global_position).normalized()
 		projectile.init(direction)
@@ -89,7 +86,7 @@ func respawn():
 	health = 3
 	is_alive = true
 	respawn_timer = 0.0
-	global_position = Vector2(100, 0)
+	global_position = Vector2(300, 300)
 	show()
 	$CollisionShape2D.set_deferred("disabled", false)
 	set_process(true)

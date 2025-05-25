@@ -83,7 +83,7 @@ func respawn():
 	health = 3
 	is_alive = true
 	respawn_timer = 0.0
-	global_position = Vector2(100, 0)
+	global_position = Vector2(300, 300)
 	show()
 	$CollisionShape2D.set_deferred("disabled", false)
 	set_process(true)

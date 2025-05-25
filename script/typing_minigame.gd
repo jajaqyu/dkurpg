@@ -77,7 +77,7 @@ func setup_ui():
 
 	# 입력 필드
 	input_field = LineEdit.new()
-	input_field.position = Vector2(300, 400)
+	input_field.position = Vector2(300, 500)
 	input_field.size = Vector2(500, 50)
 	input_field.add_theme_stylebox_override("normal", create_stylebox("res://sprites/minigame_typing/input_field.png"))
 	input_field.add_theme_color_override("font_color", Color.BLUE)

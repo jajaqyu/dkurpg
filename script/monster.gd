@@ -41,12 +41,9 @@ func _process(delta):
 
 	var distance = global_position.distance_to(player.global_position)
 
-	if distance <= 1000:
-		var direction = (player.global_position - global_position).normalized()
-		velocity = direction * speed
-		move_and_slide()
-	else:
-		velocity = Vector2.ZERO
+	var direction = (player.global_position - global_position).normalized()
+	velocity = direction * speed
+	move_and_slide()
 	update_state()
 
 	attack_timer += delta
@@ -80,7 +77,7 @@ func respawn():
 	health = 3
 	is_alive = true
 	respawn_timer = 0.0
-	global_position = Vector2(100, 0)
+	global_position = Vector2(300, 300)
 	show()
 	$CollisionShape2D.set_deferred("disabled", false)
 	set_process(true)

@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://d4cskbeeqpune" path="res://sprites/aura014_1.png" id="1_8omkl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8omkl"]
-radius = 368.0
-height = 750.0
+radius = 75.0
+height = 190.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1wyv3"]
 animations = [{

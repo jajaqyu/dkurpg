@@ -12,7 +12,7 @@ texture = ExtResource("2_di5ly")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l6yl1"]
 
 [node name="RandomItem" type="Window"]
-position = Vector2i(200, 36)
+position = Vector2i(300, 36)
 size = Vector2i(500, 600)
 script = ExtResource("1_lfnhr")
 

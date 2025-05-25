@@ -108,12 +108,12 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mrqeg"]
-radius = 106.0
-height = 248.0
+radius = 9.0
+height = 24.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ssiii"]
-radius = 77.0
-height = 222.0
+radius = 9.0
+height = 18.0
 
 [node name="Monster" type="CharacterBody2D" groups=["enemies"]]
 position = Vector2(-199, -146)
@@ -122,15 +122,13 @@ collision_mask = 7
 script = ExtResource("1_mrqeg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(260, 129)
-scale = Vector2(4, 4)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_vr0w3")
 animation = &"attack"
 frame = 7
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(242, 164)
 shape = SubResource("CapsuleShape2D_mrqeg")
 
 [node name="Hitbox" type="Area2D" parent="."]
@@ -138,8 +136,7 @@ collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(243, 166)
 shape = SubResource("CapsuleShape2D_ssiii")
 
-[connection signal="area_entered" from="Hitbox" to="." method="_on_area_entered"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_area_entered"]

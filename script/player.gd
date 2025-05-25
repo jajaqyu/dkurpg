@@ -215,50 +215,32 @@ func near_attack(direction: Vector2):
 		$attackeparent/nearAttack.damage = damage
 		$attackeparent/nearAttack.activate()
 
-	var offset = 32
+	var offset = 4
 	var angle = direction.angle()
+	var directions = [0, PI/4, PI/2, 3*PI/4, PI, -3*PI/4, -PI/2, -PI/4]
+	var min_diff = 2 * PI
+	var idx = 0
 
-	# 기본값: 오른쪽 공격
-	var hitbox_pos = Vector2(offset, 0)
-	var hitbox_rot = 0.0
 	animated_sprite.flip_h = false
+	for i in directions.size():
+		var diff = abs(angle - directions[i])
+		if diff > PI:
+			diff = 2 * PI - diff
+		if diff < min_diff:
+			min_diff = diff
+			idx = i
 
-	if direction.x > 0 and direction.y == 0:
-		# 동
-		hitbox_pos = Vector2(offset, 0)
-		hitbox_rot = 0.0
-	elif direction.x > 0 and direction.y < 0:
-		# 북동
-		hitbox_pos = Vector2(offset, 0)
-		hitbox_rot = deg_to_rad(-90)
-	elif direction.x > 0 and direction.y > 0:
-		# 남동
-		hitbox_pos = Vector2(offset, 0)
-		hitbox_rot = deg_to_rad(45)
-	elif direction.x < 0 and direction.y == 0:
-		# 서
-		hitbox_pos = Vector2(offset, 0)
-		hitbox_rot = 0.0
-		hitbox_rot = deg_to_rad(135)
-	elif direction.x < 0 and direction.y < 0:
-		# 북서
-		hitbox_pos = Vector2(offset, 0)
-		hitbox_rot = deg_to_rad(-150)
-	elif direction.x < 0 and direction.y > 0:
-		# 남서
-		hitbox_pos = Vector2(offset, 0)
-		hitbox_rot = deg_to_rad(90)
-	elif direction.x == 0 and direction.y > 0:
-		# 남
-		hitbox_pos = Vector2(offset, 0)
-		hitbox_rot = deg_to_rad(70)
-	elif direction.x == 0 and direction.y < 0:
-		# 북
-		hitbox_pos = Vector2(offset, 0)
-		hitbox_rot = deg_to_rad(-120)
+	var snapped_direction = Vector2.RIGHT.rotated(directions[idx])
+	# 위치: 방향 벡터 * offset
+	var hitbox_pos = snapped_direction * offset
+	# 회전: 해당 방향의 각도
+	var hitbox_rot = directions[idx]
+
+	# flip_h: 왼쪽(서, 북서, 남서) 방향일 때 true
+	var flip_h = idx in [3, 4, 5]	
 	hitbox.position = hitbox_pos
 	hitbox.rotation = hitbox_rot
-
+	animated_sprite.flip_h = flip_h
 	$attackeparent/nearAttack.monitoring = true
 	$attackeparent/nearAttack.visible = true
 	await get_tree().create_timer(0.2).timeout

@@ -94,7 +94,7 @@ func fire_projectile():
 	if projectile_scene and player:
 		var projectile = projectile_scene.instantiate()
 		get_parent().add_child(projectile)
-		projectile.global_position = global_position + Vector2(200,100)
+		projectile.global_position = global_position + Vector2(0,0)
 		# 방향 계산
 		var direction = (player.global_position - global_position).normalized()
 		projectile.init(direction)

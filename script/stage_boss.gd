@@ -7,10 +7,11 @@ extends Node2D
 var total_time := 180.0 # 3분(180초)
 var time_left := total_time
 @onready var timer := $Timer
-@onready var time_label := $TimeLabel
+@onready var time_label := $CanvasLayer/TimeLabel
 var isCheck =true
 var monsters_defeated = 0
 @onready var game_over_dialog = $GameoverDialog
+@onready var clear_dialog = $ClearDialog
 var tmp
 
 func _ready():
@@ -18,22 +19,29 @@ func _ready():
 	var player = player_scene.instantiate()
 	player.char_name = char_name
 	add_child(player)
-	player.global_position = Vector2(200, 200)  # 원하는 위치
+	player.scale = Vector2(2,2)
+	var camera = player.get_node("Camera2D")
+	camera.zoom = Vector2(2,2)
+	player.global_position = Vector2(600, 600)  # 원하는 위치
 	player.connect("player_died", Callable(self, "_on_player_died"))
 	
 	var monster = monster_scene.instantiate()
 	add_child(monster)
 	monster.global_position = Vector2(400 , 400)  # 원하는 위치에 배치
+	monster.died.connect(_on_monster_died)
 	game_over_dialog.hide()
 	game_over_dialog.connect("confirmed", Callable(self, "_on_game_over_confirmed"))
 
-
+	# 클리어 다이얼로그 설정
+	clear_dialog.hide()
+	clear_dialog.connect("confirmed", Callable(self, "_on_clear_confirmed"))
 func _on_monster_died():
-	monsters_defeated += 1
+	timer.stop()
+	clear_dialog.popup_centered()
 
 func _on_player_died():
 	_on_time_up()
-
+	
 
 func _process(delta):
 	if time_left > 0:
@@ -77,6 +85,16 @@ func _on_game_over_confirmed():
 	var packed_scene = preload("res://tscn/Main.tscn")
 	var new_scene = packed_scene.instantiate()
 	new_scene.login = true
+	get_tree().current_scene.queue_free()
+	get_tree().root.add_child(new_scene)
+	get_tree().current_scene = new_scene
+	
+	
+func _on_clear_confirmed():
+	print(11)
+	var next_scene = preload("res://tscn/Main.tscn")
+	var new_scene = next_scene.instantiate()
+	new_scene.login = false
 	get_tree().current_scene.queue_free()
 	get_tree().root.add_child(new_scene)
 	get_tree().current_scene = new_scene
