@@ -13,6 +13,9 @@
 radius = 58.0
 height = 190.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqu4d"]
+size = Vector2(70, 50)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nvvsh"]
 radius = 37.0
 height = 194.0
@@ -25,6 +28,7 @@ size = Vector2(359, 194)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(5, -10)
+collision_mask = 58
 script = ExtResource("1_rv870")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -32,11 +36,18 @@ position = Vector2(-4, 9)
 scale = Vector2(0.1, 0.1)
 sprite_frames = ExtResource("2_7twa1")
 animation = &"attack"
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-4, 9)
 scale = Vector2(0.1, 0.1)
 shape = SubResource("CapsuleShape2D_48og4")
+
+[node name="ObjectCollision" type="CollisionShape2D" parent="."]
+position = Vector2(-5, 16)
+scale = Vector2(0.1, 0.03)
+shape = SubResource("RectangleShape2D_gqu4d")
 
 [node name="ShootTimer" type="Timer" parent="."]
 one_shot = true

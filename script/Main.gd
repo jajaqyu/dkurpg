@@ -26,8 +26,7 @@ func _ready():
 	else:
 		playGame()
 
-
-func playInit():	
+func playInit():
 	current_map = map_scene.instantiate()
 	add_child(current_map)
 	var spawn_point = current_map.get_node("PlayerSpawn").global_position
@@ -43,9 +42,12 @@ func playInit():
 	
 	var portal1 = portal_scene.instantiate()
 	current_map.add_child(portal1)
-	portal1.global_position = Vector2(200, 200)
+	print("포탈 위치 전:", portal1.global_position)
+	portal1.position = Vector2(400, 210)
+	print("포탈 위치 후:", portal1.global_position)
 	portal1.portal_name = "Stage 1"
 	portal1.target_scene_path = "res://tscn/stage/stage_near.tscn"
+	
 	
 	var portal2 = portal_scene.instantiate()
 	current_map.add_child(portal2)

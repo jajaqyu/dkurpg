@@ -82,6 +82,10 @@ show_popup_j={
 
 [layer_names]
 
+2d_render/layer_4="레이어 3"
 2d_physics/layer_1="Player"
 2d_physics/layer_2="enemies"
 2d_physics/layer_3="fireball"
+2d_physics/layer_4="Building"
+2d_physics/layer_5="hitbox"
+2d_physics/layer_6="invisible_wall"
