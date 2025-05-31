@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var health = 3
+var health = HUD.progress*5
 var respawn_time = 10.0
 var respawn_timer = 0.0
 var player = null

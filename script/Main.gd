@@ -26,8 +26,7 @@ func _ready():
 	else:
 		playGame()
 
-
-func playInit():	
+func playInit():
 	current_map = map_scene.instantiate()
 	add_child(current_map)
 	var spawn_point = current_map.get_node("PlayerSpawn").global_position
@@ -43,38 +42,39 @@ func playInit():
 	
 	var portal1 = portal_scene.instantiate()
 	current_map.add_child(portal1)
-	portal1.global_position = Vector2(200, 200)
+	portal1.global_position = Vector2(400, 30)
 	portal1.portal_name = "Stage 1"
 	portal1.target_scene_path = "res://tscn/stage/stage_near.tscn"
 	
+	
 	var portal2 = portal_scene.instantiate()
 	current_map.add_child(portal2)
-	portal2.global_position = Vector2(200, 400)
+	portal2.global_position = Vector2(715, 0)
 	portal2.portal_name = "Stage 2"
 	portal2.target_scene_path = "res://tscn/stage/stage_lighting.tscn"
 	
 	var portal3 = portal_scene.instantiate()
 	current_map.add_child(portal3)
-	portal3.global_position = Vector2(400, 200)
+	portal3.global_position = Vector2(715, 365)
 	portal3.portal_name = "Stage 3"
 	portal3.target_scene_path = "res://tscn/stage/stage_aura.tscn"
 	
 	var portal4 = portal_scene.instantiate()
 	current_map.add_child(portal4)
-	portal4.global_position = Vector2(400, 400)
+	portal4.global_position = Vector2(350, 330)
 	portal4.portal_name = "Stage 4"
 	portal4.target_scene_path = "res://tscn/stage/stage_fireball.tscn"
 	
 	var portal5 = portal_scene.instantiate()
 	current_map.add_child(portal5)
-	portal5.global_position = Vector2(600, 200)
+	portal5.global_position = Vector2(590, 210)
 	portal5.checkItem = true
 	portal5.portal_name = "Stage 5"
 	portal5.target_scene_path = "res://tscn/random_item.tscn"
 	
 	var portal6 = portal_scene.instantiate()
 	current_map.add_child(portal6)
-	portal6.global_position = Vector2(600, 400)
+	portal6.global_position = Vector2(590, -130)
 	portal6.portal_name = "Stage Boss"
 	portal6.target_scene_path = "res://tscn/stage_boss.tscn"
 	if HUD.progress >= 140:

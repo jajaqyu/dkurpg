@@ -61,7 +61,5 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_l6yl1")
 text = "Go to MINIGAME"
 
 [node name="MessageLabel" type="Label" parent="."]
-offset_left = -1.0
-offset_top = 170.0
-offset_right = 498.0
-offset_bottom = 228.0
+offset_right = 40.0
+offset_bottom = 23.0

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bon7vgeghmnuf"
-path="res://.godot/imported/mapsample.png-90acac2af0cfc2542196586aa47701ce.ctex"
+uid="uid://ue8fs5cpwkht"
+path="res://.godot/imported/도서관.png-50d28be758b93740a17c1490ecc9ef8f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/mapsample.png"
-dest_files=["res://.godot/imported/mapsample.png-90acac2af0cfc2542196586aa47701ce.ctex"]
+source_file="res://sprites/mainMap/university_assets/도서관.png"
+dest_files=["res://.godot/imported/도서관.png-50d28be758b93740a17c1490ecc9ef8f.ctex"]
 
 [params]
 

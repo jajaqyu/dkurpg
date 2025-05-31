@@ -21,6 +21,7 @@ scale = Vector2(0.740234, 0.629883)
 texture = ExtResource("4_5ks8m")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 17
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 build_mode = 1

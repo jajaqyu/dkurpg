@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bv4rvjc340fex" path="res://tscn/World_Scene.tscn" id="3_3gfwe"]
 [ext_resource type="Theme" uid="uid://krja1pyq4q23" path="res://tscn/rad.theme" id="3_o8uje"]
 [ext_resource type="Script" uid="uid://dyql3lapfgl4e" path="res://script/minimap.gd" id="6_hii0r"]
-[ext_resource type="Texture2D" uid="uid://dld0dony3lxod" path="res://sprites/mapsample (2).png" id="7_hii0r"]
+[ext_resource type="Texture2D" uid="uid://r2y6ybtc8y53" path="res://sprites/Minimap.png" id="7_hii0r"]
 
 [sub_resource type="GDScript" id="GDScript_8wxc5"]
 script/source = "extends Node
@@ -37,7 +37,6 @@ func _ready():
 	else:
 		playGame()
 
-
 func playInit():	
 	current_map = map_scene.instantiate()
 	add_child(current_map)
@@ -53,38 +52,38 @@ func playInit():
 	
 	var portal1 = portal_scene.instantiate()
 	current_map.add_child(portal1)
-	portal1.global_position = Vector2(200, 200)
+	portal1.global_position = Vector2(400, 30)
 	portal1.portal_name = \"Stage 1\"
 	portal1.target_scene_path = \"res://tscn/stage/stage_near.tscn\"
 	
 	var portal2 = portal_scene.instantiate()
 	current_map.add_child(portal2)
-	portal2.global_position = Vector2(200, 400)
+	portal2.global_position = Vector2(715, 0)
 	portal2.portal_name = \"Stage 2\"
 	portal2.target_scene_path = \"res://tscn/stage/stage_lighting.tscn\"
 	
 	var portal3 = portal_scene.instantiate()
 	current_map.add_child(portal3)
-	portal3.global_position = Vector2(400, 200)
+	portal3.global_position = Vector2(715, 365)
 	portal3.portal_name = \"Stage 3\"
 	portal3.target_scene_path = \"res://tscn/stage/stage_aura.tscn\"
 	
 	var portal4 = portal_scene.instantiate()
 	current_map.add_child(portal4)
-	portal4.global_position = Vector2(400, 400)
+	portal4.global_position = Vector2(350, 330)
 	portal4.portal_name = \"Stage 4\"
 	portal4.target_scene_path = \"res://tscn/stage/stage_fireball.tscn\"
 	
 	var portal5 = portal_scene.instantiate()
 	current_map.add_child(portal5)
-	portal5.global_position = Vector2(600, 200)
+	portal5.global_position = Vector2(590, 210)
 	portal5.checkItem = true
 	portal5.portal_name = \"Stage 5\"
 	portal5.target_scene_path = \"res://tscn/random_item.tscn\"
 	
 	var portal6 = portal_scene.instantiate()
 	current_map.add_child(portal6)
-	portal6.global_position = Vector2(600, 400)
+	portal6.global_position = Vector2(590, -130)
 	portal6.portal_name = \"Stage Boss\"
 	portal6.target_scene_path = \"res://tscn/stage_boss.tscn\"
 	if HUD.progress >= 140:
@@ -260,57 +259,57 @@ expand_mode = 1
 position = Vector2(-875, 66)
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Minimap/SubViewport/PortalMarker"]
-offset_left = 939.0
-offset_top = 48.0
-offset_right = 954.0
-offset_bottom = 55.0
+offset_left = 940.0
+offset_top = 32.0
+offset_right = 955.0
+offset_bottom = 39.0
 color = Color(0.0980392, 1, 1, 1)
 
 [node name="ColorRect6" type="ColorRect" parent="CanvasLayer/Minimap/SubViewport/PortalMarker"]
-offset_left = 1000.0
-offset_top = 71.0
-offset_right = 1015.0
-offset_bottom = 78.0
+offset_left = 989.0
+offset_top = 12.0
+offset_right = 1004.0
+offset_bottom = 19.0
 color = Color(0.0980392, 1, 1, 1)
 
 [node name="ColorRect5" type="ColorRect" parent="CanvasLayer/Minimap/SubViewport/PortalMarker"]
-offset_left = 1000.0
-offset_top = 6.0
-offset_right = 1015.0
-offset_bottom = 13.0
+offset_left = 950.0
+offset_top = -12.0
+offset_right = 965.0
+offset_bottom = -5.0
 color = Color(0.0980392, 1, 1, 1)
 
 [node name="ColorRect4" type="ColorRect" parent="CanvasLayer/Minimap/SubViewport/PortalMarker"]
-offset_left = 999.0
+offset_left = 988.0
 offset_top = -41.0
-offset_right = 1014.0
+offset_right = 1003.0
 offset_bottom = -34.0
 color = Color(0.0980392, 1, 1, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="CanvasLayer/Minimap/SubViewport/PortalMarker"]
-offset_left = 1056.0
-offset_top = 29.0
-offset_right = 1071.0
-offset_bottom = 36.0
+offset_left = 1013.0
+offset_top = 32.0
+offset_right = 1028.0
+offset_bottom = 39.0
 color = Color(0.0980392, 1, 1, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="CanvasLayer/Minimap/SubViewport/PortalMarker"]
-offset_left = 941.0
-offset_top = -43.0
-offset_right = 956.0
-offset_bottom = -36.0
+offset_left = 1012.0
+offset_top = -23.0
+offset_right = 1027.0
+offset_bottom = -16.0
 color = Color(0.0980392, 1, 1, 1)
 
 [node name="PlayerMarker" type="ColorRect" parent="CanvasLayer/Minimap/SubViewport/PortalMarker"]
 anchors_preset = -1
-anchor_left = -0.586
+anchor_left = 0.586
 anchor_top = 0.613
-anchor_right = -0.586
+anchor_right = 0.586
 anchor_bottom = 0.613
-offset_left = 972.0
-offset_top = 52.0
-offset_right = 977.0
-offset_bottom = 67.0
+offset_left = 973.0
+offset_top = 57.0
+offset_right = 978.0
+offset_bottom = 72.0
 color = Color(0.968627, 0.309804, 0.0313726, 1)
 
 [node name="SubViewport" type="SubViewport" parent="CanvasLayer/Minimap/SubViewport"]
