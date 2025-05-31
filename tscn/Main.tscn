@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwdrkou38o0a7"]
+[gd_scene load_steps=9 format=3 uid="uid://cwdrkou38o0a7"]
 
 [ext_resource type="Script" uid="uid://co0x1bwpm4u3p" path="res://script/Main.gd" id="1_ewaw7"]
 [ext_resource type="PackedScene" uid="uid://d32i7ivu474tf" path="res://tscn/Player.tscn" id="2_8wxc5"]
@@ -7,7 +7,7 @@
 [ext_resource type="Theme" uid="uid://krja1pyq4q23" path="res://tscn/rad.theme" id="4_a7rub"]
 [ext_resource type="PackedScene" uid="uid://bv4rvjc340fex" path="res://tscn/World_Scene.tscn" id="4_jboqg"]
 [ext_resource type="Script" uid="uid://dyql3lapfgl4e" path="res://script/minimap.gd" id="7_n3buc"]
-[ext_resource type="Texture2D" uid="uid://dld0dony3lxod" path="res://sprites/mapsample (2).png" id="8_r3xed"]
+[ext_resource type="Texture2D" uid="uid://r2y6ybtc8y53" path="res://sprites/Minimap.png" id="8_n3buc"]
 
 [node name="Main1" type="Node"]
 script = ExtResource("1_ewaw7")
@@ -85,7 +85,7 @@ stretch = true
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Minimap/SubViewport"]
 custom_minimum_size = Vector2(220, 150)
 layout_mode = 2
-texture = ExtResource("8_r3xed")
+texture = ExtResource("8_n3buc")
 expand_mode = 1
 
 [node name="PortalMarker" type="Marker2D" parent="CanvasLayer/Minimap/SubViewport"]

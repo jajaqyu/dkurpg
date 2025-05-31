@@ -12,5 +12,5 @@ var player_node = null
 func _process(delta):
 	if player_node:
 		var player_world_pos = player_node.global_position
-		var player_minimap_pos = player_world_pos / world_size * minimap_size + Vector2(839,-70)
+		var player_minimap_pos = player_world_pos / world_size * minimap_size + Vector2(850,-40)
 		$SubViewport/PortalMarker/PlayerMarker.position = player_minimap_pos

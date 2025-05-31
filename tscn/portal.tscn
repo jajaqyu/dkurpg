@@ -55,6 +55,7 @@ animations = [{
 }]
 
 [node name="Portal" type="Area2D"]
+z_index = 2
 script = ExtResource("1_ujlpe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
