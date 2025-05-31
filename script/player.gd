@@ -126,13 +126,16 @@ func _process(delta):
 			if HUD.DEF >= 20:
 				if HUD.DEF >=40:
 					is_heal = true
-					#이미지 변경
+					anim.modulate = Color(0.5, 1.0, 0.5, 0.7)
 					HUD.use_skill()
 					can_skill = false	
+					$HealTimer.start(2.0)	
 				else:
 					is_barriear = true
+					anim.modulate = Color(0.4, 0.8, 1.0, 0.7)
 					HUD.use_skill()
 					can_skill = false	
+					$BarrierTimer.start(3.0)
 		
 		elif HUD.job == "체육학과" and can_skill:
 			if HUD.MOV >= 20:
@@ -287,11 +290,13 @@ func add_item():
 
 func start_dash():
 	is_dashing = true
+	anim.modulate.Color(1.0, 1.0, 0.5, 0.6)
 	dash_timer.start(dash_duration)
 	
 
 func _on_dash_timer_timeout():
 	is_dashing = false
+	anim.modulate.Color(1.0, 1.0, 1.0, 1.0)
 
 
 func item_check(): #이미지는 직업 캐릭터 사진과 스킬 모습
@@ -387,3 +392,11 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	elif anim.animation == "hit":
 		anim.play("idle")
 		is_hit = false
+
+func _on_HealTimer_timeout():
+	is_heal = false
+	anim.modulate = Color(1, 1, 1, 1)
+	
+func _on_BarrierTimer_timeout():
+	is_barriear = false
+	anim.modulate = Color(1, 1, 1, 1)

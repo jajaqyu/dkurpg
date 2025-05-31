@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwe4aupthwxsm"
-path="res://.godot/imported/계산 미니게임.png-9c89687a05cff13d13fb7262891de5be.ctex"
+uid="uid://otek31lxtl78"
+path="res://.godot/imported/파일위치.png-174f3364c4c0b2fd563ca80567b1f942.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image/계산 미니게임.png"
-dest_files=["res://.godot/imported/계산 미니게임.png-9c89687a05cff13d13fb7262891de5be.ctex"]
+source_file="res://image/파일위치.png"
+dest_files=["res://.godot/imported/파일위치.png-174f3364c4c0b2fd563ca80567b1f942.ctex"]
 
 [params]
 

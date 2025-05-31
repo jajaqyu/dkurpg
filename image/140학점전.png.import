@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1m82mfeluy13"
-path="res://.godot/imported/스테이지2.png-644ebf872b69d2e901b6c76056153d62.ctex"
+uid="uid://dxtlehqo5wtwo"
+path="res://.godot/imported/140학점전.png-fba049d0b4c7b05d5822486d5e8814f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image/스테이지2.png"
-dest_files=["res://.godot/imported/스테이지2.png-644ebf872b69d2e901b6c76056153d62.ctex"]
+source_file="res://image/140학점전.png"
+dest_files=["res://.godot/imported/140학점전.png-fba049d0b4c7b05d5822486d5e8814f7.ctex"]
 
 [params]
 
