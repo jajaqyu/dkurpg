@@ -83,7 +83,7 @@ func respawn():
 	set_process(true)
 	set_physics_process(true)
 	attack_timer = 4.0             # ← 추가: 공격 타이머 초기화
-	change_state(State.IDLE)  
+	current_state = State.IDLE
 	animated_sprite.play("idle")  
 	animated_sprite.show()
 

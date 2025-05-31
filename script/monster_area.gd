@@ -113,7 +113,7 @@ func respawn():
 	set_process(true)
 	set_physics_process(true)
 	attack_timer = 4.0             # ← 추가: 공격 타이머 초기화
-	change_state(State.IDLE) 
+	current_state = State.IDLE
 	animated_sprite.play("idle")  
 	animated_sprite.show()
 
@@ -137,16 +137,15 @@ func _try_give_item_to_player():
 
 
 func change_state(new_state):
-	if current_state == State.DIE: return
+	if current_state == State.DIE:
+		return
 	current_state = new_state
-	
 	match current_state:
 		State.IDLE:
 			animated_sprite.play("idle")
 		State.HIT:
 			animated_sprite.play("hit")
 			await animated_sprite.animation_finished
-			
 			change_state(State.IDLE)
 		State.SKILL:
 			animated_sprite.play("skill")

@@ -91,8 +91,8 @@ func respawn():
 	$CollisionShape2D.set_deferred("disabled", false)
 	set_process(true)
 	set_physics_process(true)
-	attack_timer = 4.0             # ← 추가: 공격 타이머 초기화
-	change_state(State.IDLE)
+	attack_timer = 0.0           # ← 추가: 공격 타이머 초기화
+	current_state = State.IDLE
 	animated_sprite.play("idle")  
 	animated_sprite.show()
 

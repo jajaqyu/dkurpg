@@ -2,20 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< HEAD
-uid="uid://cf4ig0a7andkp"
-=======
-uid="uid://cq0pmbfuccwbr"
->>>>>>> 7028ade (add job_description)
-path="res://.godot/imported/스테이지1.png-4beafb81cd01c4eccd3e8246aacc26e6.ctex"
+uid="uid://mwcf018auyv"
+path="res://.godot/imported/타자연습 미니게임.png-c05d8f0017e1ef18c21c03234ef2d8c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image/스테이지1.png"
-dest_files=["res://.godot/imported/스테이지1.png-4beafb81cd01c4eccd3e8246aacc26e6.ctex"]
+source_file="res://image/타자연습 미니게임.png"
+dest_files=["res://.godot/imported/타자연습 미니게임.png-c05d8f0017e1ef18c21c03234ef2d8c3.ctex"]
 
 [params]
 

@@ -28,6 +28,7 @@ func _ready():
 	for i in range(5):
 		var monster = monster_scene.instantiate()
 		add_child(monster)
+		monster.died.connect(_on_monster_died)
 		monster.global_position = Vector2(400 + i * 100, 400)  # 원하는 위치에 배치
 	game_over_dialog.hide()
 	game_over_dialog.connect("confirmed", Callable(self, "_on_game_over_confirmed"))

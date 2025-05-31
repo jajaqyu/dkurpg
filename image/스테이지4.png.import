@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://vgk6wfn543mi"
+=======
+uid="uid://dikxmoth3jt8c"
+>>>>>>> 7028ade (add job_description)
 path="res://.godot/imported/스테이지4.png-7506ecdacda76b8e128dbf660b23c69b.ctex"
 metadata={
 "vram_texture": false

@@ -14,16 +14,16 @@ func _input(event):
 		hide()
 
 
-func show_trait(trait_name): #이미지는 직업 캐릭터 사진과 스킬 모습
+func show_trait(): #이미지는 직업 캐릭터 사진과 스킬 모습
 	var db = SQLite.new()
 	db.path = HUD.db_path
 	db.open_db()
-	db.query("SELECT appearance, description FROM Item WHERE Item_name = '%s'" %trait_name)
+	db.query("SELECT appearance, feature FROM job WHERE job_name = '%s'" %HUD.job)
 
 	if db.query_result.size() > 0:
 		var row = db.query_result[0]
 		var image_path = row["appearance"]
-		var description = row["description"]
+		var description = row["feature"]
 		$TextureRect.texture = load(image_path)
 		$Label.text = description
 	db.close_db()
