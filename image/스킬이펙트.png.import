@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dinbqju0714dq"
-path="res://.godot/imported/아이템창 .png-361393a78f15a9127dc4624aa2383382.ctex"
+uid="uid://bjnnm2wpophjv"
+path="res://.godot/imported/스킬이펙트.png-3ae0e9ca0d645eca2d47823e22d677e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image/아이템창 .png"
-dest_files=["res://.godot/imported/아이템창 .png-361393a78f15a9127dc4624aa2383382.ctex"]
+source_file="res://image/스킬이펙트.png"
+dest_files=["res://.godot/imported/스킬이펙트.png-3ae0e9ca0d645eca2d47823e22d677e9.ctex"]
 
 [params]
 

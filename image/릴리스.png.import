@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkrjjnnuy2vrq"
-path="res://.godot/imported/뽑기 화면.png-fbd8b5785970b5b0ac377ced1f79240e.ctex"
+uid="uid://ctrt4ssnpn1q2"
+path="res://.godot/imported/릴리스.png-a06fdec6fcc548dd66b490bea6800ef8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image/뽑기 화면.png"
-dest_files=["res://.godot/imported/뽑기 화면.png-fbd8b5785970b5b0ac377ced1f79240e.ctex"]
+source_file="res://image/릴리스.png"
+dest_files=["res://.godot/imported/릴리스.png-a06fdec6fcc548dd66b490bea6800ef8.ctex"]
 
 [params]
 

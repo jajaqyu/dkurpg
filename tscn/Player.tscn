@@ -96,5 +96,13 @@ offset = Vector2(10, 0)
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
 
+[node name="HealTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="BarrierTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="timeout" from="HealTimer" to="." method="_on_HealTimer_timeout"]
+[connection signal="timeout" from="BarrierTimer" to="." method="_on_BarrierTimer_timeout"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1m82mfeluy13"
-path="res://.godot/imported/스테이지2.png-644ebf872b69d2e901b6c76056153d62.ctex"
+uid="uid://c3cmpd834v6qu"
+path="res://.godot/imported/뽑기장비.png-83b90be99cef9a51a825ced654b42471.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image/스테이지2.png"
-dest_files=["res://.godot/imported/스테이지2.png-644ebf872b69d2e901b6c76056153d62.ctex"]
+source_file="res://image/뽑기장비.png"
+dest_files=["res://.godot/imported/뽑기장비.png-83b90be99cef9a51a825ced654b42471.ctex"]
 
 [params]
 

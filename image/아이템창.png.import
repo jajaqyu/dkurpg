@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crg43d04u4yxg"
-path="res://.godot/imported/게임 조작키 .png-1b842ef1f9a92d8bc271410f2692376e.ctex"
+uid="uid://kpr26unm5i1"
+path="res://.godot/imported/아이템창.png-10c3c511408316bc848ed92923d454a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image/게임 조작키 .png"
-dest_files=["res://.godot/imported/게임 조작키 .png-1b842ef1f9a92d8bc271410f2692376e.ctex"]
+source_file="res://image/아이템창.png"
+dest_files=["res://.godot/imported/아이템창.png-10c3c511408316bc848ed92923d454a7.ctex"]
 
 [params]
 

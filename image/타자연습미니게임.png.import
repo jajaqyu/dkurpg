@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6rlfdbejtour"
-path="res://.godot/imported/타자연습 미니게임.png-c05d8f0017e1ef18c21c03234ef2d8c3.ctex"
+uid="uid://drefbnv4i2mtp"
+path="res://.godot/imported/타자연습미니게임.png-4357c7fc4ac37997c469f473dfefd141.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image/타자연습 미니게임.png"
-dest_files=["res://.godot/imported/타자연습 미니게임.png-c05d8f0017e1ef18c21c03234ef2d8c3.ctex"]
+source_file="res://image/타자연습미니게임.png"
+dest_files=["res://.godot/imported/타자연습미니게임.png-4357c7fc4ac37997c469f473dfefd141.ctex"]
 
 [params]
 

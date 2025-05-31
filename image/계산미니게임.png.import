@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5looj0pyfk70"
-path="res://.godot/imported/뽑기 장비 .png-a94379f4a677ef388ac2b004b2a0c083.ctex"
+uid="uid://ehfm5w83p62j"
+path="res://.godot/imported/계산미니게임.png-510516db9fb852cc89f21f1335a443de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image/뽑기 장비 .png"
-dest_files=["res://.godot/imported/뽑기 장비 .png-a94379f4a677ef388ac2b004b2a0c083.ctex"]
+source_file="res://image/계산미니게임.png"
+dest_files=["res://.godot/imported/계산미니게임.png-510516db9fb852cc89f21f1335a443de.ctex"]
 
 [params]
 
