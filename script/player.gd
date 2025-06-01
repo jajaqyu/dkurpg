@@ -290,13 +290,13 @@ func add_item():
 
 func start_dash():
 	is_dashing = true
-	anim.modulate.Color(1.0, 1.0, 0.5, 0.6)
+	anim.modulate = Color(1.0, 1.0, 0.5, 0.6)
 	dash_timer.start(dash_duration)
 	
 
 func _on_dash_timer_timeout():
 	is_dashing = false
-	anim.modulate.Color(1.0, 1.0, 1.0, 1.0)
+	anim.modulate = Color(1.0, 1.0, 1.0, 1.0)
 
 
 func item_check(): #이미지는 직업 캐릭터 사진과 스킬 모습

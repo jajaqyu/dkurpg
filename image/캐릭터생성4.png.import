@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhqdohsmj3ssj"
-path="res://.godot/imported/로그인1.png-a9e6a18c9f85e92c756169188cd31566.ctex"
+uid="uid://dv43pficsy81e"
+path="res://.godot/imported/캐릭터생성4.png-b74355ec498bb10356d1a0ceae731b12.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image/로그인1.png"
-dest_files=["res://.godot/imported/로그인1.png-a9e6a18c9f85e92c756169188cd31566.ctex"]
+source_file="res://image/캐릭터생성4.png"
+dest_files=["res://.godot/imported/캐릭터생성4.png-b74355ec498bb10356d1a0ceae731b12.ctex"]
 
 [params]
 
