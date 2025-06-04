@@ -42,7 +42,7 @@ func playInit():
 	
 	var portal1 = portal_scene.instantiate()
 	current_map.add_child(portal1)
-	portal1.global_position = Vector2(400, 30)
+	portal1.global_position = Vector2(350, 330)
 	portal1.portal_name = "Stage 1"
 	portal1.target_scene_path = "res://tscn/stage/stage_near.tscn"
 	
@@ -61,7 +61,7 @@ func playInit():
 	
 	var portal4 = portal_scene.instantiate()
 	current_map.add_child(portal4)
-	portal4.global_position = Vector2(350, 330)
+	portal4.global_position = Vector2(400, 30)
 	portal4.portal_name = "Stage 4"
 	portal4.target_scene_path = "res://tscn/stage/stage_fireball.tscn"
 	
